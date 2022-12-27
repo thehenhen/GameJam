@@ -6,6 +6,7 @@ class Player{
         this.a=0.4;
         this.lr=4;
         this.jump=8;
+        this.grounded=false;
 
         this.hgt=30;
         this.wdt=20;
@@ -23,9 +24,6 @@ class Player{
         if(this.right){
             this.x+=this.lr;
         }
-        // if(this.up){
-        //     this.up = false;
-        // }
         if (this.up) {
             this.vY+=this.a/1.5;
         } else if (this.down) {
@@ -35,25 +33,26 @@ class Player{
         }
         this.y+=this.vY;
 
+        this.grounded = false;
         for (let wall = 0; wall < walls.length; wall++) {
             let res = walls[wall].collide(this.x, this.y, this.wdt, this.hgt, this.vY);
             if (res != undefined) {
                 console.log("wall", res, wall);
                 if (res == 0) {
+                    this.grounded = true;
                     this.y = walls[wall].y1 - (this.hgt/2);
                     this.up = false;
                     this.vY = 0;
                 } else if (res == 1) {
+                    this.grounded = true;
                     this.up = false;
                     this.vY = this.a;
                 } else if (res == 2) {
                     this.x = walls[wall].x1 - (this.wdt/2);
                     this.up = false;
-                    this.vY = 0;
                 } else if (res == 3) {
                     this.x = walls[wall].x1 + (this.wdt/2);
                     this.up = false;
-                    this.vY = 0;
                 }
             }
         }
@@ -68,9 +67,10 @@ class Player{
             this.right=true;
         }
         if(key === 'w'){
-            if (this.vY == 0) {
+            if (this.grounded) {
                 this.up=true;
                 this.vY-=this.jump;
+                this.grounded = false;
             }
         }
         if(key === 's'){
