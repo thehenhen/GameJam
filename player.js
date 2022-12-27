@@ -13,21 +13,40 @@ class Player{
         this.grounded=false;
         this.dead = false;
     
-        this.hgt=30;
-        this.wdt=20;
+        this.hgt=60;
+        this.wdt=40;
     
         this.up=false;
         this.down=false;
         this.left=false;
         this.right=false;
+        
+        this.facing=1;
+        //left=0
+        //right=1
+
+        this.runningR=[loadImage("assets/santa-runningR1.png"),
+        loadImage("assets/santa-runningR2.png"),
+        loadImage("assets/santa-runningR3.png"),
+        loadImage("assets/santa-runningR4.png")];
+
+        this.runningL=[loadImage("assets/santa-runningL1.png"),
+        loadImage("assets/santa-runningL2.png"),
+        loadImage("assets/santa-runningL3.png"),
+        loadImage("assets/santa-runningL4.png")];
+
+        this.standing=[loadImage("assets/santa-standingL.png"),loadImage("assets/santa-standingR.png")];
+
     }
 
     update(stage) {
         if(this.left){
             this.x-=this.lr;
+            this.facing=0;
         }
         if(this.right){
             this.x+=this.lr;
+            this.facing=1;
         }
         if (this.up) {
             this.vY+=this.a/1.5;
@@ -120,9 +139,17 @@ class Player{
 
     show(){
         if (!this.dead) {
-            fill(180,30,30);
-            noStroke();
-            rect(this.x,this.y,this.wdt,this.hgt);
+            if(this.right){
+                image(this.runningR[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
+                console.log(floor((frame%16)/4));
+            }
+            else if(this.left){
+                image(this.runningL[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
+                console.log(floor((frame%16)/4));
+            }else {
+                image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
+            }
+            //rect(this.x,this.y,this.wdt,this.hgt);
         }
     }
 }
