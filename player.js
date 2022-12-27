@@ -37,6 +37,10 @@ class Player{
 
         this.standing=[loadImage("assets/santa-standingL.png"),loadImage("assets/santa-standingR.png")];
 
+        this.jumping=[loadImage("assets/santa-jumpingR.png"),
+        loadImage("assets/santa-jumpingL.png"),
+        loadImage("assets/santa-fallingR.png"),
+        loadImage("assets/santa-fallingL.png")];
     }
 
     update(stage) {
@@ -139,17 +143,30 @@ class Player{
 
     show(){
         if (!this.dead) {
-            if(this.right){
-                image(this.runningR[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
-                console.log(floor((frame%16)/4));
+            if(this.facing==1){
+                if(this.vY<0){
+                    image(this.jumping[0],this.x,this.y,this.wdt,this.hgt); 
+                } else if(this.vY>0){
+                    image(this.jumping[2],this.x,this.y,this.wdt,this.hgt); 
+                }else if(this.right){
+                    image(this.runningR[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
+                }else {
+                    image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
+                }
             }
-            else if(this.left){
-                image(this.runningL[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
-                console.log(floor((frame%16)/4));
+            else if(this.facing==0){
+                if(this.vY<0){
+                    image(this.jumping[1],this.x,this.y,this.wdt,this.hgt); 
+                } else if(this.vY>0){
+                    image(this.jumping[3],this.x,this.y,this.wdt,this.hgt); 
+                } else if(this.left){
+                    image(this.runningL[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
+                }else {
+                    image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
+                }
             }else {
                 image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
             }
-            //rect(this.x,this.y,this.wdt,this.hgt);
         }
     }
 }
