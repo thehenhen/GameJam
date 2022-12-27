@@ -9,6 +9,9 @@ class Obstacle {
     value() {
         return [this.x1,this.y1,this.x2,this.y2];
     }
+    draw() {
+        line(this.x1, this.y1, this.x2, this.y2);
+    }
     collide(playerX, playerY, playerW, playerH, playerV) {
         if (this.type == 0) {
             if (playerX + playerW/2 > this.x1
@@ -23,5 +26,6 @@ class Obstacle {
             && playerX + playerW/2 > this.x1
             && playerX - playerW/2 < this.x1) return playerX < this.x1 ? 2 : 3;
         }
+        return -1;
     }
 }

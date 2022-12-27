@@ -12,19 +12,24 @@ function draw(){
     text("Stage: " + level.stage,800,80);
     text("Loc:  " + player.x + " " + player.y,800,100);
     // player.update();
-    player.update(level.collision);
-    player.show();
+    if (frame++ % 2 != 3) {
+        player.update(level);
+        player.show();
+    }
     stroke(255);
     level.draw();
-    frame++;
+    // frame++;
 }
 function keyPressed() {
-    if (key == ' ') {
+    if (key == 'p') {
         play = !play;
         if (play) noLoop();
         else loop();
-    } else player.keyPress(key);
+    } else if (player.dead && key == ' ') {
+        level.reset();
+    }
+    player.keyPress(key, keyCode);
 }
 function keyReleased() {
-    player.keyRelease(key);
+    player.keyRelease(key, keyCode);
 }
