@@ -1,5 +1,10 @@
 class Player{
     constructor(){
+        this.a=0.4;
+        this.lr=4;
+        this.jump=8;
+        this.hgt=30;
+        this.wdt=20;
         this.reset();
     }
     
@@ -7,9 +12,7 @@ class Player{
         this.x=100;
         this.y=525;
         this.vY=0;
-        this.a=0.4;
-        this.lr=4;
-        this.jump=8;
+    
         this.grounded=false;
         this.dead = false;
     
@@ -40,23 +43,24 @@ class Player{
     }
 
     update(stage) {
-        if(this.left){
-            this.x-=this.lr;
-            this.facing=0;
+        if (!this.dead) {
+            if(this.left){
+                this.x-=this.lr;
+                this.facing=0;
+            }
+            if(this.right){
+                this.x+=this.lr;
+                this.facing=1;
+            }
+            if (this.up) {
+                this.vY+=this.a/1.5;
+            } else if (this.down) {
+                this.vY+=this.a*3;
+            } else {
+                this.vY+=this.a;
+            }
+            this.y+=this.vY;
         }
-        if(this.right){
-            this.x+=this.lr;
-            this.facing=1;
-        }
-        if (this.up) {
-            this.vY+=this.a/1.5;
-        } else if (this.down) {
-            this.vY+=this.a*3;
-        } else {
-            this.vY+=this.a;
-        }
-        this.y+=this.vY;
-
         this.grounded = false;
         this.collision(stage.collision);
         this.death_check(stage.traps);
@@ -90,6 +94,8 @@ class Player{
             if (res != -1) {
                 if (res == 1) {
                     this.dead = true;
+                    this.x = -100;
+                    this.y = -100;
                 }
             }
         }

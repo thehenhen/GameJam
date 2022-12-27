@@ -4,6 +4,7 @@ class Trap {
         this.y = y;
         this.r = r;
         this.type = type;
+        imageMode(CENTER);
         this.reset();
     }
     draw() {
@@ -11,7 +12,6 @@ class Trap {
             fill(191);
             translate(this.x, this.y);
             rotate(this.rot++/10);
-            imageMode(CENTER);
             image(this.img, 0,0);
         }
     }
@@ -21,14 +21,28 @@ class Trap {
         this.rot = 0;
     }
     collide(playerX, playerY, playerW, playerH) {
-        if (this.type == 0) {
+        if (this.type == 0) {       // sawblade
             if (playerX + playerW/2 >= this.x - this.r/2
                 && playerX - playerW/2 <= this.x + this.r/2
                 && playerY + playerH/2 >= this.y - this.r/2
                 && playerY - playerH/2 <= this.x + this.r/2) {
-                this.rot = 0;
-                this.img = this.alt;
-                return 1;
+                let tx,ty;
+                if (playerX < this.x) {
+                    tx = playerX + playerW/2 - this.x;
+                } else {
+                    tx = playerX - playerW/2 - this.x;
+                }
+                if (playerY < this.x) {
+                    ty = playerY - playerH/2 - this.y;
+                } else {
+                    ty = playerY + playerH/2 - this.y;
+                }
+                console.log(tx, ty, Math.sqrt(tx**2 + ty**2), this.r);
+                if (Math.sqrt((tx**2) + (ty)**2) <= this.r) {
+                    this.rot = 0;
+                    this.img = this.alt;
+                    return 1;
+                }
             }
         }
     }
