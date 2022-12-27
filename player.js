@@ -25,6 +25,7 @@ class Player{
         this.right=false;
         
         this.facing=1;
+        this.framesPerSprite=7;
         //left=0
         //right=1
 
@@ -155,7 +156,7 @@ class Player{
                 } else if(this.vY>0){
                     image(this.jumping[2],this.x,this.y,this.wdt,this.hgt); 
                 }else if(this.right){
-                    image(this.runningR[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
+                    image(this.runningR[floor((frame%(this.framesPerSprite*4))/this.framesPerSprite)],this.x,this.y,this.wdt,this.hgt); 
                 }else {
                     image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
                 }
@@ -166,7 +167,7 @@ class Player{
                 } else if(this.vY>0){
                     image(this.jumping[3],this.x,this.y,this.wdt,this.hgt); 
                 } else if(this.left){
-                    image(this.runningL[floor((frame%24)/6)],this.x,this.y,this.wdt,this.hgt); 
+                    image(this.runningL[floor((frame%(this.framesPerSprite*4))/this.framesPerSprite)],this.x,this.y,this.wdt,this.hgt); 
                 }else {
                     image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
                 }
