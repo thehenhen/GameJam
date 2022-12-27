@@ -21,12 +21,12 @@ class player{
             this.y-=20;
             console.log("W");
         }
-        if((this.y>280 || this.y+this.vY>280) && this.x>=80 && this.x<=110){
+        if((this.y>280 || this.y+this.vY>280) && this.x>=70 && this.x<=110){
             this.y=280;
             this.up=false;
             this.vY=0;
         }
-        if((this.y>260 || this.y+this.vY>260) && this.x>=100 && this.x<=320){
+        if((this.y>260 || this.y+this.vY>260) && this.x>=90 && this.x<=310){
             this.y=260;
             this.up=false;
             this.vY=0;
@@ -87,15 +87,16 @@ let p;
 
 function setup(){
     createCanvas(1800,500);
+    rectMode(CENTER)
     p = new player();
 }
 
 function draw(){
     background(0);
     fill(100);
-    rect(0,350,1800,150);
-    rect(100,330,20,20);
-    rect(120,310,200,40);
+    rect(width/2,412,1800,174);
+    rect(90,315,20,20);
+    rect(200,305,200,40);
     p.update();
     p.show();
     console.log(p.vY);
