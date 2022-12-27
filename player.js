@@ -1,64 +1,84 @@
-class player{
+class Player{
     constructor(){
-        this.x=0;
+        this.x=100;
         this.y=100;
         this.vY=0;
-        this.a=1;
+        this.a=0.4;
+        this.lr=4;
+        this.jump=8;
+
+        this.hgt=30;
+        this.wdt=20;
+
         this.up=false;
+        this.down=false;
         this.left=false;
         this.right=false;
     }
 
-    update(){
+    update(walls) {
         if(this.left){
-            this.x-=5;
-            console.log("A");
-        } else if(this.right){
-            this.x+=5;
-            console.log("D");
+            this.x-=this.lr;
         }
-        if(this.up){
-            this.y-=20;
-            console.log("W");
+        if(this.right){
+            this.x+=this.lr;
         }
-        if((this.y>280 || this.y+this.vY>280) && this.x>=70 && this.x<=110){
-            this.y=280;
-            this.up=false;
-            this.vY=0;
-        }
-        if((this.y>260 || this.y+this.vY>260) && this.x>=90 && this.x<=310){
-            this.y=260;
-            this.up=false;
-            this.vY=0;
-        }
-        if(this.y>300 || this.y+this.vY>300){
-            this.y=300;
-            this.up=false;
-            this.vY=0;
-        }else{
+        // if(this.up){
+        //     this.up = false;
+        // }
+        if (this.up) {
+            this.vY+=this.a/1.5;
+        } else if (this.down) {
+            this.vY+=this.a*3;
+        } else {
             this.vY+=this.a;
         }
-        //if(frameCount%10==0){
-            this.y+=this.vY;
-        //ddd}
-        //dddthis.keyPress();
-    }
+        this.y+=this.vY;
 
-    keyPress(){
-        if(keyIsPressed){
-            if(key ==='a'){
-                this.left=true;
-            }
-            if(key ==='d'){
-                this.right=true;
-            }
-            if(key ==='w'){
-                this.up=true;
+        for (let wall = 0; wall < walls.length; wall++) {
+            let res = walls[wall].collide(this.x, this.y, this.wdt, this.hgt, this.vY);
+            if (res != undefined) {
+                console.log("wall", res, wall);
+                if (res == 0) {
+                    this.y = walls[wall].y1 - (this.hgt/2);
+                    this.up = false;
+                    this.vY = 0;
+                } else if (res == 1) {
+                    this.up = false;
+                    this.vY = this.a;
+                } else if (res == 2) {
+                    this.x = walls[wall].x1 - (this.wdt/2);
+                    this.up = false;
+                    this.vY = 0;
+                } else if (res == 3) {
+                    this.x = walls[wall].x1 + (this.wdt/2);
+                    this.up = false;
+                    this.vY = 0;
+                }
             }
         }
     }
+    
+    
+    keyPress(key){
+        if(key === 'a'){
+            this.left=true;
+        }
+        if(key === 'd'){
+            this.right=true;
+        }
+        if(key === 'w'){
+            if (this.vY == 0) {
+                this.up=true;
+                this.vY-=this.jump;
+            }
+        }
+        if(key === 's'){
+            this.down=true;
+        }
+    }
 
-    keyRelease(){
+    keyRelease(key){
         if(key ==='a'){
             this.left=false;
         }
@@ -66,13 +86,17 @@ class player{
             this.right=false;
         }
         if(key ==='w'){
-            //this.up=false;
+            this.up=false;
+        }
+        if(key ==='s'){
+            this.down=false;
         }
     }
 
     show(){
         fill(180,30,30);
-        rect(this.x,this.y,20,50);
+        noStroke();
+        rect(this.x,this.y,this.wdt,this.hgt);
     }
 }
 
@@ -81,23 +105,4 @@ function keyPressed(){
 }
 function keyReleased(){
     p.keyRelease();
-}
-
-let p;
-
-function setup(){
-    createCanvas(1800,500);
-    rectMode(CENTER)
-    p = new player();
-}
-
-function draw(){
-    background(0);
-    fill(100);
-    rect(width/2,412,1800,174);
-    rect(90,315,20,20);
-    rect(200,305,200,40);
-    p.update();
-    p.show();
-    console.log(p.vY);
 }
