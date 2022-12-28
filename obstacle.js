@@ -10,6 +10,8 @@ class Obstacle {
         return [this.x1,this.y1,this.x2,this.y2];
     }
     draw() {
+        stroke(255);
+        strokeWeight(2);
         line(this.x1, this.y1, this.x2, this.y2);
     }
     collide(playerX, playerY, playerW, playerH, playerV) {

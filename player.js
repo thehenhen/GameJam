@@ -1,5 +1,5 @@
 class Player{
-    constructor(){
+    constructor(level){
         this.a=0.4;
         this.lr=4;
         this.jump=8;
@@ -22,13 +22,12 @@ class Player{
         loadImage("assets/santa-fallingR.png"),
         loadImage("assets/santa-fallingL.png")];
 
-
-        this.reset();
+        this.reset(level);
     }
     
-    reset() {
-        this.x=100;
-        this.y=525;
+    reset(level) {
+        this.x=level.spawnX;
+        this.y=level.spawnY;
         this.vY=0;
     
         this.grounded=false;
@@ -43,11 +42,11 @@ class Player{
         
         this.facing=1;
         this.framesPerSprite=7;
-        //left=0
-        //right=1
+        this.checkpoint=1;
     }
 
     update(stage) {
+        this.collision(stage.collision);
         if (!this.dead) {
             if(this.left){
                 this.x-=this.lr;
@@ -69,6 +68,17 @@ class Player{
         this.grounded = false;
         this.collision(stage.collision);
         this.death_check(stage.traps);
+        return this.area_check(stage.areas);
+    }
+    area_check(areas) {
+        for (let area = 0; area < areas.length; area++) {
+            let res = areas[area].collision(this.x,this.y,this.wdt,this.hgt);
+            if (res == this.checkpoint) {
+                this.checkpoint++;
+                if (res == areas.length) return 1;
+            }
+        }
+        return -1;
     }
     collision(walls) {
         for (let wall = 0; wall < walls.length; wall++) {
@@ -106,7 +116,7 @@ class Player{
         }
     }
     
-    keyPress(key, keyCode){
+    keyPress(key, keyCode, level=undefined){
         if (!this.dead) {
             if(key === 'a' || keyCode === LEFT_ARROW){
                 this.left=true;
@@ -126,7 +136,7 @@ class Player{
             }
         } else {
             if(key == ' ') {
-                this.reset();
+                this.reset(level);
             }
         }
     }
@@ -150,6 +160,7 @@ class Player{
 
     show(){
         if (!this.dead) {
+            imageMode(CENTER);
             if(this.facing==1){
                 if(this.vY<0){
                     image(this.jumping[0],this.x,this.y,this.wdt,this.hgt); 

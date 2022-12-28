@@ -10,9 +10,11 @@ class Trap {
     draw() {
         if (this.type == 0) {
             fill(191);
+            applyMatrix();
             translate(this.x, this.y);
             rotate(this.rot++/10);
             image(this.img, 0,0);
+            resetMatrix();
         }
     }
     reset() {
@@ -22,17 +24,21 @@ class Trap {
     }
     collide(playerX, playerY, playerW, playerH) {
         if (this.type == 0) {       // sawblade
+            // console.log("left", playerX + playerW/2 >= this.x - this.r/2);
+            // console.log("right", playerX - playerW/2 <= this.x + this.r/2);
+            // console.log("top", playerY + playerH/2 >= this.y - this.r/2);
+            // console.log("bottom", playerY - playerH/2 <= this.y + this.r/2);
             if (playerX + playerW/2 >= this.x - this.r/2
                 && playerX - playerW/2 <= this.x + this.r/2
                 && playerY + playerH/2 >= this.y - this.r/2
-                && playerY - playerH/2 <= this.x + this.r/2) {
+                && playerY - playerH/2 <= this.y + this.r/2) {
                 let tx,ty;
                 if (playerX < this.x) {
                     tx = playerX + playerW/2 - this.x;
                 } else {
                     tx = playerX - playerW/2 - this.x;
                 }
-                if (playerY < this.x) {
+                if (playerY < this.y) {
                     ty = playerY - playerH/2 - this.y;
                 } else {
                     ty = playerY + playerH/2 - this.y;

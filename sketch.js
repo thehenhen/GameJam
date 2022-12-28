@@ -1,8 +1,8 @@
 function setup(){
     createCanvas(1000,550);
     rectMode(CENTER);
-    player = new Player();
-    level = new Stage(1);
+    level = new Stage();
+    player = new Player(level);
     frame = 0;
     play = false;
 }
@@ -13,22 +13,29 @@ function draw(){
     text("Loc:  " + player.x + " " + player.y,800,100);
     // player.update();
     if (frame++ % 2 != 3) {
-        player.update(level);
+        let res = player.update(level);
+        if (res == 1) {
+            level.nextStage();
+            player.reset(level);
+        }
         player.show();
     }
     stroke(255);
-    level.draw();
+    level.draw(player);
     // frame++;
 }
 function keyPressed() {
-    if (key == 'p') {
+    if (key == 'p' || key == 'P') {
         play = !play;
         if (play) noLoop();
         else loop();
     } else if (player.dead && key == ' ') {
         level.reset();
+    } else if (key == 'r' || key == 'R') {
+        level.reset();
+        player.reset(level);
     }
-    player.keyPress(key, keyCode);
+    player.keyPress(key, keyCode, level);
 }
 function keyReleased() {
     player.keyRelease(key, keyCode);
