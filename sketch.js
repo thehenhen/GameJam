@@ -1,28 +1,39 @@
 function setup(){
     createCanvas(1000,550);
     rectMode(CENTER);
+    menu = new Menu();
+    settings = new Settings();
+    instructions = new Instructions();
     level = new Stage();
     player = new Player(level);
     frame = 0;
     play = false;
 }
 function draw(){
-    background(0);
-    fill(255);
-    text("Stage: " + level.stage,800,80);
-    text("Loc:  " + player.x + " " + player.y,800,100);
-    text("Checkpoint: " + player.checkpoint,800,120);
-    // player.update();
-    level.draw(player);
-    if (frame++ % 2 != 3) {
-        let res = player.update(level);
-        if (res == 1) {
-            level.nextStage();
-            player.reset(level);
+    if(menu.menu){
+        menu.show();
+    }else if(settings.sett){
+        settings.show();
+    }else if(instructions.instructions){
+        instructions.show();
+    }else{
+        background(0);
+        fill(255);
+        text("Stage: " + level.stage,800,80);
+        text("Loc:  " + player.x + " " + player.y,800,100);
+        text("Checkpoint: " + player.checkpoint,800,120);
+        // player.update();
+        level.draw(player);
+        if (frame++ % 2 != 3) {
+            let res = player.update(level);
+            if (res == 1) {
+                level.nextStage();
+                player.reset(level);
+            }
+            player.show();
         }
-        player.show();
+        stroke(255);
     }
-    stroke(255);
     // frame++;
 }
 function keyPressed() {

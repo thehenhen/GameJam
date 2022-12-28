@@ -18,7 +18,7 @@ class Area {
     draw(player) {
         fill(63,127);
         rectMode(CENTER);
-        noStroke();
+        stroke(255);
         if (this.type < player.checkpoint) {
             fill(33,130,0,200);
         }

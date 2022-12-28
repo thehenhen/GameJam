@@ -31,6 +31,29 @@ class Stage {
                 new Obstacle(10,10,10,540,1),
                 new Obstacle(10,540,990,540,0),
                 new Obstacle(990,10,990,540,1),
+
+            ];
+            this.blocks = [
+                new Block(870,360,400,400,"/assets/tree.png"),
+            ];
+            this.traps = [
+                new Trap(450,540,80,0)
+            ];
+            this.areas = [
+                new Area(840,510,50,60,1),
+                new Area(100,510,50,60,2),
+            ];
+        }
+
+        if (level == 1) {
+            this.spawnX = 100;
+            this.spawnY = 510;
+            this.collision = [
+                // default borders
+                new Obstacle(10,10,990,10,0),
+                new Obstacle(10,10,10,540,1),
+                new Obstacle(10,540,990,540,0),
+                new Obstacle(990,10,990,540,1),
                 
                 // chair 1
                 new Obstacle(650,490,700,490,0),
@@ -56,7 +79,7 @@ class Stage {
                 new Area(100,510,50,60,2),
             ];
         }
-        if (level == 1) {
+        if (level == 2) {
             this.spawnX = 150;
             this.spawnY = 120;
             this.collision = [
@@ -101,7 +124,7 @@ class Stage {
                 new Area(150,120,50,60,2),
             ];
         }
-        if (level == 2) {
+        if (level == 3) {
             this.spawnX = 500;
             this.spawnY = 120;
             this.collision = [

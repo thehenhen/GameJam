@@ -22,6 +22,9 @@ class Player{
         loadImage("assets/santa-fallingR.png"),
         loadImage("assets/santa-fallingL.png")];
 
+        this.dying=[loadImage("assets/santa-deadL.png"),
+        loadImage("assets/santa-deadR.png")];
+
         this.reset(level);
     }
     
@@ -43,6 +46,8 @@ class Player{
         this.facing=1;
         this.framesPerSprite=7;
         this.checkpoint=1;
+
+        this.blood=255;
     }
 
     update(stage) {
@@ -63,6 +68,9 @@ class Player{
             } else {
                 this.vY+=this.a;
             }
+            this.y+=this.vY;
+        }else{
+            this.vY+=this.a;
             this.y+=this.vY;
         }
         this.grounded = false;
@@ -108,9 +116,13 @@ class Player{
             let res = traps[trap].collide(this.x, this.y, this.wdt, this.hgt);
             if (res != -1) {
                 if (res == 1) {
+                    if(!this.dead){
+                        //this.vY=-10;
+                    }
                     this.dead = true;
-                    this.x = -100;
-                    this.y = -100;
+                    //this.x = -100;
+                    //this.y = -100;
+                    
                 }
             }
         }
@@ -185,6 +197,15 @@ class Player{
             }else {
                 image(this.standing[this.facing],this.x,this.y,this.wdt,this.hgt); 
             }
+        }else {
+            imageMode(CENTER);
+            this.hgt=40;
+            this.wdt=60;
+            tint(this.blood, 0, 0);
+            image(this.dying[this.facing],this.x,this.y,this.wdt,this.hgt); 
+            tint(255);
+            this.blood--;
+            this.blood=max(this.blood,150);
         }
     }
 }
