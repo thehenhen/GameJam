@@ -42,7 +42,7 @@ class Stage {
                 new Obstacle(350,490,350,540,1),
                 new Obstacle(300,440,300,540,1),
                 
-                // chair 2
+                // table
                 new Obstacle(400,475,600,475,0),
                 new Obstacle(400,475,400,540,1),
                 new Obstacle(600,475,600,540,1),
@@ -52,7 +52,7 @@ class Stage {
             ];
             this.traps = [];
             this.areas = [
-                new Area(820,510,50,60,1),
+                new Area(840,510,50,60,1),
                 new Area(100,510,50,60,2),
             ];
         }
@@ -70,7 +70,7 @@ class Stage {
                 new Obstacle(200,450,200,540,1),
                 new Obstacle(400,450,400,540,1),
                 
-                // fireplace (?)
+                // bookshelf
                 new Obstacle(500,375,700,375,0),
                 new Obstacle(500,375,500,540,1),
                 new Obstacle(700,375,700,540,1),
@@ -102,16 +102,36 @@ class Stage {
             ];
         }
         if (level == 2) {
+            this.spawnX = 500;
+            this.spawnY = 120;
             this.collision = [
                 new Obstacle(10,10,990,10,0),
                 new Obstacle(10,10,10,540,1),
                 new Obstacle(10,540,990,540,0),
                 new Obstacle(990,10,990,540,1),
+                new Obstacle(370,10,370,540,1),
+                new Obstacle(630,10,630,540,1),
 
-                new Obstacle(200,450,400,450,0),
-                new Obstacle(500,375,700,375,0),
-                new Obstacle(300,275,500,275,0),
-                new Obstacle(300,275,500,275,0),
+                new Obstacle(370,450,400,450,0),
+                new Obstacle(600,350,630,350,0),
+                new Obstacle(370,250,400,250,0)
+            ];
+
+            this.blocks = [
+                new Block(500,430,300,300,"/assets/tree.png"),
+            ];
+
+            this.traps = [
+                new Trap(430,540,80,0),
+                new Trap(570,540,80,0),
+                new Trap(370,350,80,0),
+                new Trap(630,250,80,0),
+                new Trap(370,150,80,0),
+            ];
+
+            this.areas = [
+                new Area(500,510,50,60,1),
+                new Area(500,120,50,60,2),
             ];
         }
     }

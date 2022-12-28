@@ -20,7 +20,7 @@ class Area {
         rectMode(CENTER);
         noStroke();
         if (this.type < player.checkpoint) {
-            fill(33,130,0,127);
+            fill(33,130,0,200);
         }
         rect(this.x,this.y,this.w,this.h);
     }
