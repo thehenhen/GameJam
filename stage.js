@@ -5,6 +5,7 @@ class Stage {
     }
     draw(player) {
         for (let i = 0; i < this.traps.length; i++) {this.traps[i].draw();}
+        for (let i = 0; i < this.blocks.length; i++) {this.blocks[i].draw();}
         fill(0);
         noStroke();
         rectMode(CORNER);
@@ -14,7 +15,6 @@ class Stage {
         rect(width-10,0,10,height);
         for (let i = 0; i < this.collision.length; i++) {this.collision[i].draw();}
         for (let i = 0; i < this.areas.length; i++) {this.areas[i].draw(player);}
-        for (let i = 0; i < this.blocks.length; i++) {this.blocks[i].draw();}
     }
     reset() {
         for (let i = 0; i < this.traps.length; i++) {
@@ -47,10 +47,12 @@ class Stage {
                 new Obstacle(400,475,400,540,1),
                 new Obstacle(600,475,600,540,1),
             ];
-            this.blocks = [];
+            this.blocks = [
+                new Block(870,360,400,400,"/assets/tree.png"),
+            ];
             this.traps = [];
             this.areas = [
-                new Area(800,480,50,60,1),
+                new Area(820,510,50,60,1),
                 new Area(100,510,50,60,2),
             ];
         }
@@ -87,6 +89,7 @@ class Stage {
             ];
             this.blocks = [
                 new Block(400,262.5,200,25),
+                new Block(140,430,300,300,"/assets/tree.png"),
             ];
             this.traps = [
                 new Trap(450,540,80,0),

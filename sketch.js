@@ -11,7 +11,9 @@ function draw(){
     fill(255);
     text("Stage: " + level.stage,800,80);
     text("Loc:  " + player.x + " " + player.y,800,100);
+    text("Checkpoint: " + player.checkpoint,800,120);
     // player.update();
+    level.draw(player);
     if (frame++ % 2 != 3) {
         let res = player.update(level);
         if (res == 1) {
@@ -21,7 +23,6 @@ function draw(){
         player.show();
     }
     stroke(255);
-    level.draw(player);
     // frame++;
 }
 function keyPressed() {
@@ -34,6 +35,10 @@ function keyPressed() {
     } else if (key == 'r' || key == 'R') {
         level.reset();
         player.reset(level);
+    } else if (key == '-' || key == '_') {
+        level.prevStage();
+    } else if (key == '+' || key == '=') {
+        level.nextStage();
     }
     player.keyPress(key, keyCode, level);
 }

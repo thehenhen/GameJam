@@ -15,6 +15,9 @@ class Block {
             fill(219,189,114);
             noStroke();
             rect(this.x,this.y,this.w,this.h);
+        } else {
+            imageMode(CENTER);
+            image(this.img,this.x,this.y,this.w,this.h);
         }
     }
 }
