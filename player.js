@@ -3,32 +3,8 @@ class Player{
         this.a=0.4;
         this.lr=4;
         this.jump=8;
-        this.hgt=30;
-        this.wdt=20;
-        this.reset();
-    }
-    
-    reset() {
-        this.x=100;
-        this.y=525;
-        this.vY=0;
-    
-        this.grounded=false;
-        this.dead = false;
-    
         this.hgt=60;
         this.wdt=40;
-    
-        this.up=false;
-        this.down=false;
-        this.left=false;
-        this.right=false;
-        
-        this.facing=1;
-        this.framesPerSprite=7;
-        //left=0
-        //right=1
-
         this.runningR=[loadImage("assets/santa-runningR1.png"),
         loadImage("assets/santa-runningR2.png"),
         loadImage("assets/santa-runningR3.png"),
@@ -45,6 +21,30 @@ class Player{
         loadImage("assets/santa-jumpingL.png"),
         loadImage("assets/santa-fallingR.png"),
         loadImage("assets/santa-fallingL.png")];
+
+
+        this.reset();
+    }
+    
+    reset() {
+        this.x=100;
+        this.y=525;
+        this.vY=0;
+    
+        this.grounded=false;
+        this.dead = false;
+    
+        this.hgt=60;
+        this.wdt=40;    
+        this.up=false;
+        this.down=false;
+        this.left=false;
+        this.right=false;
+        
+        this.facing=1;
+        this.framesPerSprite=7;
+        //left=0
+        //right=1
     }
 
     update(stage) {
