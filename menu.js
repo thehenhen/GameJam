@@ -44,13 +44,13 @@ class Menu{
         tint(250,200,200); 
         if(overScreen.counter<3){
             image(player.dying[0],300,300,420,280);
-            tint(255);
         }else{
             glitch.resetBytes();
             glitch.randomBytes(0.1);
             glitch.buildImage();            
             image(glitch.image,300,300,420,280);
         }
+        tint(255);
         //console.log(mouseX+","+mouseY);
         
     } 
