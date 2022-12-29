@@ -204,6 +204,10 @@ class Player{
             tint(this.blood, 0, 0);
             image(this.dying[this.facing],this.x,this.y,this.wdt,this.hgt); 
             tint(255);
+            if(this.blood==255 || (this.blood>150 && this.blood<=250)){
+                fill(255,this.blood); 
+                rect(width/2,height/2,width,height); 
+            }
             this.blood--;
             this.blood=max(this.blood,150);
         }

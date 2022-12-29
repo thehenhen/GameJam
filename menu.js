@@ -14,6 +14,8 @@ class Menu{
         textFont(consolaFont);
         text("SANTA'S",900,150); 
         text("TERROR",900,230); 
+        textSize(20);
+        text("Warning: Flashing Lights",900,300);
         textSize(40);
         if(mouseX<895 && mouseX>813 && mouseY>=337 && mouseY<=372){
             fill(250,150,150);

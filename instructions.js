@@ -17,8 +17,12 @@ class Instructions{
             fill(250,150,150);
         }
         text("< BACK",100,120);
+        fill(136, 8, 8); 
+        text("WASD/Arrow Keys to move",150,250);
+        text("SPACE/R to restart",150,300);
+        text("Help Santa deliver the gifts",150,380);
+        text("while avoiding the traps. ",150,420);
         //text(mouseX+","+mouseY,mouseX,mouseY);
-        
     } 
 
     mouse(){

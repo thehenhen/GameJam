@@ -1,18 +1,21 @@
 class Obstacle {
-    constructor(x1, y1, x2, y2, type) {
+    constructor(x1, y1, x2, y2, type,show) {
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
         this.y2 = y2;
         this.type = type;
+        this.show=show;
     }
     value() {
         return [this.x1,this.y1,this.x2,this.y2];
     }
     draw() {
-        stroke(255);
-        strokeWeight(2);
-        line(this.x1, this.y1, this.x2, this.y2);
+        if(this.show){
+            stroke(255);
+            strokeWeight(2);
+            line(this.x1, this.y1, this.x2, this.y2);
+        }
     }
     collide(playerX, playerY, playerW, playerH, playerV) {
         if (this.type == 0) {

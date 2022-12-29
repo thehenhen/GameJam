@@ -27,14 +27,14 @@ class Stage {
             this.spawnY = 510;
             this.collision = [
                 // default borders
-                new Obstacle(10,10,990,10,0),
-                new Obstacle(10,10,10,540,1),
-                new Obstacle(10,540,990,540,0),
-                new Obstacle(990,10,990,540,1),
+                new Obstacle(10,10,990,10,0,true),
+                new Obstacle(10,10,10,540,1,true),
+                new Obstacle(10,540,990,540,0,true),
+                new Obstacle(990,10,990,540,1,true),
 
             ];
             this.blocks = [
-                new Block(870,360,400,400,"/assets/tree.png"),
+                new Block(870,360,400,400,"/assets/tree.png",0,0,0),
             ];
             this.traps = [
                 new Trap(450,540,80,0)
@@ -50,28 +50,31 @@ class Stage {
             this.spawnY = 510;
             this.collision = [
                 // default borders
-                new Obstacle(10,10,990,10,0),
-                new Obstacle(10,10,10,540,1),
-                new Obstacle(10,540,990,540,0),
-                new Obstacle(990,10,990,540,1),
+                new Obstacle(10,10,990,10,0,true),
+                new Obstacle(10,10,10,540,1,true),
+                new Obstacle(10,540,990,540,0,true),
+                new Obstacle(990,10,990,540,1,true),
                 
                 // chair 1
                 new Obstacle(650,490,700,490,0),
                 new Obstacle(650,490,650,540,1),
-                new Obstacle(700,440,700,540,1),
+                new Obstacle(700,490,700,540,1),
                 
                 // chair 2
                 new Obstacle(300,490,350,490,0),
                 new Obstacle(350,490,350,540,1),
-                new Obstacle(300,440,300,540,1),
+                new Obstacle(300,490,300,540,1),
                 
                 // table
-                new Obstacle(400,475,600,475,0),
-                new Obstacle(400,475,400,540,1),
-                new Obstacle(600,475,600,540,1),
+                new Obstacle(400,450,600,450,0),
+                new Obstacle(400,450,400,540,1),
+                new Obstacle(600,450,600,540,1),
             ];
             this.blocks = [
-                new Block(870,360,400,400,"/assets/tree.png"),
+                new Block(870,360,400,400,"/assets/tree.png",0,0,0),
+                new Block(500,495,250,250,"/assets/furniture1.png",0,0,0),
+                new Block(325,515,50,45,undefined,85,52,43),
+                new Block(675,515,50,45,undefined,85,52,43)
             ];
             this.traps = [];
             this.areas = [
@@ -83,20 +86,20 @@ class Stage {
             this.spawnX = 150;
             this.spawnY = 120;
             this.collision = [
-                new Obstacle(10,10,990,10,0),
-                new Obstacle(10,10,10,540,1),
-                new Obstacle(10,540,990,540,0),
-                new Obstacle(990,10,990,540,1),
+                new Obstacle(10,10,990,10,0,true),
+                new Obstacle(10,10,10,540,1,true),
+                new Obstacle(10,540,990,540,0,true),
+                new Obstacle(990,10,990,540,1,true),
                 
-                // couch
+                // dresser
                 new Obstacle(200,450,400,450,0),
                 new Obstacle(200,450,200,540,1),
                 new Obstacle(400,450,400,540,1),
                 
                 // bookshelf
-                new Obstacle(500,375,700,375,0),
-                new Obstacle(500,375,500,540,1),
-                new Obstacle(700,375,700,540,1),
+                new Obstacle(500,370,700,370,0),
+                new Obstacle(500,370,500,540,1),
+                new Obstacle(700,370,700,540,1),
                 
                 // ledge
                 new Obstacle(300,250,300,275,0),
@@ -111,8 +114,11 @@ class Stage {
                 new Obstacle(175,150,175,170,0)
             ];
             this.blocks = [
-                new Block(400,262.5,200,25),
-                new Block(140,430,300,300,"/assets/tree.png"),
+                new Block(150,160,50,20,undefined,85,52,43),
+                new Block(400,262.5,200,25,undefined,85,52,43),
+                new Block(600,455,200,170,undefined,85,52,43),
+                new Block(140,430,300,300,"/assets/tree.png",0,0,0),
+                new Block(300,495,250,250,"/assets/furniture1.png",0,0,0)
             ];
             this.traps = [
                 new Trap(450,540,80,0),
@@ -128,20 +134,23 @@ class Stage {
             this.spawnX = 500;
             this.spawnY = 120;
             this.collision = [
-                new Obstacle(10,10,990,10,0),
-                new Obstacle(10,10,10,540,1),
-                new Obstacle(10,540,990,540,0),
-                new Obstacle(990,10,990,540,1),
-                new Obstacle(370,10,370,540,1),
-                new Obstacle(630,10,630,540,1),
+                new Obstacle(10,10,990,10,0,true),
+                new Obstacle(10,10,10,540,1,true),
+                new Obstacle(10,540,990,540,0,true),
+                new Obstacle(990,10,990,540,1,true),
 
-                new Obstacle(370,450,400,450,0),
-                new Obstacle(600,350,630,350,0),
-                new Obstacle(370,250,400,250,0)
+                new Obstacle(370,10,370,540,1,true),
+                new Obstacle(630,10,630,540,1,true),
+
+                new Obstacle(370,450,400,450,0,true),
+                new Obstacle(600,350,630,350,0,true),
+                new Obstacle(370,250,400,250,0,true)
             ];
 
             this.blocks = [
-                new Block(500,430,300,300,"/assets/tree.png"),
+                new Block(500,430,300,300,"/assets/tree.png",0,0,0),
+                new Block(190,275,360,530,"/assets/bricks.png",85,52,43),
+                new Block(810,275,360,530,"/assets/bricks.png",85,52,43),
             ];
 
             this.traps = [
