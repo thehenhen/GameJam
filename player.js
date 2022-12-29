@@ -5,6 +5,7 @@ class Player{
         this.jump=8;
         this.hgt=60;
         this.wdt=40;
+        this.lives=3;
         
         this.runningR=[loadImage("assets/santa-runningR1.png"),
         loadImage("assets/santa-runningR2.png"),
@@ -49,6 +50,7 @@ class Player{
 
         this.playing=false;
         this.blood=255;
+        
     }
 
     update(stage) {
@@ -119,13 +121,19 @@ class Player{
                 if (res == 1) {
                     if(!this.dead){
                         //this.vY=-10;
+                        this.lives--;
                     }
                     this.dead = true;
+                    
+                    console.log(this.lives);
                     //this.x = -100;
                     //this.y = -100;
-                    if(!this.playing){
+                    if(!this.playing && this.lives==0){
+                        deathSound.setVolume(1);
                         deathSound.play();
+                        
                         this.playing=true;
+                        
                     }
                     
                 }
@@ -146,6 +154,8 @@ class Player{
                     this.up=true;
                     this.vY-=this.jump;
                     this.grounded = false;
+                    jumpSound.setVolume(0.01);
+                    jumpSound.play();
                 }
             }
             if(key === 's' || keyCode === DOWN_ARROW){
@@ -218,11 +228,4 @@ class Player{
             this.blood=max(this.blood,150);
         }
     }
-}
-
-function keyPressed(){
-    p.keyPress();
-}
-function keyReleased(){
-    p.keyRelease();
 }

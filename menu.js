@@ -8,7 +8,7 @@ class Menu{
         background(0);
         //noFill();
         fill(136, 8, 8); 
-        //stroke(255);
+        noStroke();
         textSize(100);
         textAlign(RIGHT,CENTER);
         textFont(consolaFont);
