@@ -3,13 +3,16 @@ let deathSound;
 let deathSound2;
 let jumpSound;
 let gift;
-let time;
+let timer;
+let glitch;
+let glitchedSanta;
 function preload(){
     consolaFont = loadFont("assets/CONSOLA.TTF");
     deathSound = loadSound("assets/jumpscare.mp3");
     deathSound2 = loadSound("assets/jumpscare2.mp3");
     jumpSound = loadSound("assets/jump.mp3");
     gift=loadImage("assets/gift.png");
+    
 }
 
 function setup(){
@@ -21,6 +24,9 @@ function setup(){
     overScreen = new GameOver();
     level = new Stage();
     player = new Player(level);
+    glitch=new Glitch();
+    glitch.loadType('png');    
+    glitch.loadImage("assets/santa-deadL.png");
     frame = 0;
     play = false;
 }

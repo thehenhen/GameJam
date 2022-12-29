@@ -1,7 +1,7 @@
 class Menu{
     constructor(){
         this.menu=true;
-        
+        this.santa="";
     }
 
     show(){
@@ -12,7 +12,17 @@ class Menu{
         textSize(100);
         textAlign(RIGHT,CENTER);
         textFont(consolaFont);
-        text("SANTA'S",900,150); 
+        if(overScreen.counter<3){
+            text("SANTA'S",900,150);
+        }else {
+            this.santa="";
+            for(let i=0;i<5;i++){
+                this.santa+=char(floor(random(33,39))); 
+            }
+            text(this.santa+"'S",900,150);
+        }
+         
+
         text("TERROR",900,230); 
         textSize(20);
         text("Warning: Jumpscares",900,300);
@@ -32,8 +42,15 @@ class Menu{
         }
         text("Instructions",900,450);
         tint(250,200,200); 
-        image(player.dying[0],300,300,420,280);
-        tint(255);
+        if(overScreen.counter<3){
+            image(player.dying[0],300,300,420,280);
+            tint(255);
+        }else{
+            glitch.resetBytes();
+            glitch.randomBytes(0.1);
+            glitch.buildImage();            
+            image(glitch.image,300,300,420,280);
+        }
         //console.log(mouseX+","+mouseY);
         
     } 

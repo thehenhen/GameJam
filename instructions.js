@@ -26,7 +26,7 @@ class Instructions{
         }else {
             this.santa="";
             for(let i=0;i<5;i++){
-                this.santa+=char(floor(random(33,64))); 
+                this.santa+=char(floor(random(33,39))); 
             }
             
             text("Help "+this.santa+" deliver the gifts",150,380);

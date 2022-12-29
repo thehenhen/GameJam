@@ -166,6 +166,43 @@ class Stage {
                 new Area(500,120,50,60,2),
             ];
         }
+        if (level == 4) {
+            this.spawnX = 100;
+            this.spawnY = 510;
+            this.collision = [
+                new Obstacle(10,10,990,10,0,true),
+                new Obstacle(10,10,10,540,1,true),
+                new Obstacle(10,540,990,540,0,true),
+                new Obstacle(990,10,990,540,1,true),
+
+                //new Obstacle(370,10,370,540,1,true),
+                //new Obstacle(630,10,630,540,1,true),
+
+                //new Obstacle(370,450,400,450,0,true),
+                //new Obstacle(600,350,630,350,0,true),
+                //new Obstacle(370,250,400,250,0,true)
+            ];
+
+            this.blocks = [
+                new Block(800,430,300,300,"/assets/tree.png",0,0,0),
+                //new Block(190,275,360,530,"/assets/bricks.png",85,52,43),
+                //new Block(810,275,360,530,"/assets/bricks.png",85,52,43),
+            ];
+
+            this.traps = [
+                new Trap(200,540,80,0),
+                new Trap(200,370,80,0),
+                new Trap(380,540,80,0),
+                new Trap(380,370,80,0),
+                new Trap(560,540,80,0),
+                new Trap(560,370,80,0),
+            ];
+
+            this.areas = [
+                new Area(800,510,50,60,1),
+                new Area(100,510,50,60,2),
+            ];
+        }
     }
     prevStage() {
         this.setStage(this.stage -= 1);

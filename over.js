@@ -1,10 +1,10 @@
 class GameOver{
     constructor(){
         this.over=false;
-        this.counter=0;
+        this.counter=2;
         this.message=["it's not real",
         "why do you care about it",
-        "it's just pixels",
+        "IT'S FAKE",
         "it's doomed to die",
         "you can't save it",
         "it doesn't exist"]
@@ -20,7 +20,10 @@ class GameOver{
         fill(136, 8, 8);
         noStroke();
         text("game over",120,400); 
-        if(millis()-time>5000){
+        if(millis()-timer==0 || (millis()-timer>=10 && millis()-timer<=100)){
+            background(255);
+        }
+        if(millis()-timer>5000){
             
             background(0);
             //textAlign(CENTER,CENTER);
@@ -28,7 +31,7 @@ class GameOver{
             //textSize(100);
             text(this.message[(this.counter)%this.message.length],120,400); 
         }
-        if(millis()-time>5200){
+        if(millis()-timer>5400){
             this.over=false;
             this.counter++;
         }
@@ -36,7 +39,8 @@ class GameOver{
     }
 
     start(){
-        time=millis();
+        timer=millis();
+        background(255);
         this.over=true;
     }
 
