@@ -47,6 +47,7 @@ class Player{
         this.framesPerSprite=7;
         this.checkpoint=1;
 
+        this.playing=false;
         this.blood=255;
     }
 
@@ -122,6 +123,10 @@ class Player{
                     this.dead = true;
                     //this.x = -100;
                     //this.y = -100;
+                    if(!this.playing){
+                        deathSound.play();
+                        this.playing=true;
+                    }
                     
                 }
             }
@@ -147,9 +152,10 @@ class Player{
                 this.down=true;
             }
         } else {
+            /*
             if(key == ' ') {
                 this.reset(level);
-            }
+            }*/
         }
     }
 

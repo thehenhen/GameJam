@@ -1,6 +1,8 @@
 let consolaFont;
+let deathSound;
 function preload(){
     consolaFont = loadFont("assets/CONSOLA.TTF");
+    deathSound = loadSound("assets/jumpscare.mp3");
 }
 
 function setup(){
@@ -46,9 +48,10 @@ function keyPressed() {
         play = !play;
         if (play) noLoop();
         else loop();
-    } else if (player.dead && key == ' ') {
+    } else if (player.dead && key == ' ' && (player.blood==255 || player.blood==150)) {
         level.reset();
-    } else if (key == 'r' || key == 'R') {
+        player.reset(level);
+    } else if ((key == 'r' || key == 'R') && (player.blood==255 || player.blood==150)) {
         level.reset();
         player.reset(level);
     } else if (key == '-' || key == '_') {
