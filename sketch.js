@@ -1,3 +1,8 @@
+let consolaFont;
+function preload(){
+    consolaFont = loadFont("assets/CONSOLA.TTF");
+}
+
 function setup(){
     createCanvas(1000,550);
     rectMode(CENTER);

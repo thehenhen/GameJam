@@ -5,6 +5,7 @@ class Player{
         this.jump=8;
         this.hgt=60;
         this.wdt=40;
+        
         this.runningR=[loadImage("assets/santa-runningR1.png"),
         loadImage("assets/santa-runningR2.png"),
         loadImage("assets/santa-runningR3.png"),
@@ -24,7 +25,6 @@ class Player{
 
         this.dying=[loadImage("assets/santa-deadL.png"),
         loadImage("assets/santa-deadR.png")];
-
         this.reset(level);
     }
     
