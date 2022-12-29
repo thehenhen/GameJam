@@ -27,7 +27,7 @@ function draw(){
         background(0);
         fill(255);
         text("Stage: " + level.stage,800,80);
-        text("Loc:  " + player.x + " " + player.y,800,100);
+        text("Loc:  " + floor(player.x) + " " + floor(player.y),800,100);
         text("Checkpoint: " + player.checkpoint,800,120);
         // player.update();
         level.draw(player);
