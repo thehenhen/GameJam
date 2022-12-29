@@ -1,10 +1,10 @@
 class GameOver{
     constructor(){
         this.over=false;
-        this.counter=2;
-        this.message=["it's not real",
+        this.counter=0;
+        this.message=["santa doesn't exist",
         "why do you care about it",
-        "IT'S FAKE",
+        "SANTA'S NOT REAL",
         "it's doomed to die",
         "you can't save it",
         "it doesn't exist"]
