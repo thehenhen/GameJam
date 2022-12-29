@@ -43,7 +43,7 @@ class Trap {
                 } else {
                     ty = playerY + playerH/2 - this.y;
                 }
-                console.log(tx, ty, Math.sqrt(tx**2 + ty**2), this.r);
+                //console.log(tx, ty, Math.sqrt(tx**2 + ty**2), this.r);
                 if (Math.sqrt((tx**2) + (ty)**2) <= this.r) {
                     this.rot = 0;
                     this.img = this.alt;

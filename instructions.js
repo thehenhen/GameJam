@@ -1,6 +1,7 @@
 class Instructions{
     constructor(){
         this.instructions=false;
+        this.santa="";
     }
 
     show(){
@@ -20,7 +21,16 @@ class Instructions{
         fill(136, 8, 8); 
         text("WASD/Arrow Keys to move",150,250);
         text("SPACE/R to restart",150,300);
-        text("Help Santa deliver the gifts",150,380);
+        if(overScreen.counter<3){
+            text("Help Santa deliver the gifts",150,380);
+        }else {
+            this.santa="";
+            for(let i=0;i<5;i++){
+                this.santa+=char(floor(random(33,64))); 
+            }
+            
+            text("Help "+this.santa+" deliver the gifts",150,380);
+        }
         text("while avoiding the traps. ",150,420);
         //text(mouseX+","+mouseY,mouseX,mouseY);
     } 

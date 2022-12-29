@@ -60,13 +60,16 @@ class Menu{
 }
 
 function mousePressed(){
-    if(menu.menu){
-        menu.mouse();
-    }
-    if(settings.sett){
-        settings.mouse();
-    }
-    if(instructions.instructions){
-        instructions.mouse();
+    if(!overScreen.over){
+        if(menu.menu){
+            menu.mouse();
+            console.log("hm");
+        }
+        if(settings.sett){
+            settings.mouse();
+        }
+        if(instructions.instructions){
+            instructions.mouse();
+        }
     }
 }

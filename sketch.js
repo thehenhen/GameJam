@@ -1,10 +1,15 @@
 let consolaFont;
 let deathSound;
+let deathSound2;
 let jumpSound;
+let gift;
+let time;
 function preload(){
     consolaFont = loadFont("assets/CONSOLA.TTF");
     deathSound = loadSound("assets/jumpscare.mp3");
+    deathSound2 = loadSound("assets/jumpscare2.mp3");
     jumpSound = loadSound("assets/jump.mp3");
+    gift=loadImage("assets/gift.png");
 }
 
 function setup(){
@@ -13,13 +18,16 @@ function setup(){
     menu = new Menu();
     settings = new Settings();
     instructions = new Instructions();
+    overScreen = new GameOver();
     level = new Stage();
     player = new Player(level);
     frame = 0;
     play = false;
 }
 function draw(){
-    if(menu.menu){
+    if(overScreen.over){
+        overScreen.show();
+    }else if(menu.menu){
         menu.show();
     }else if(settings.sett){
         settings.show();
@@ -39,6 +47,7 @@ function draw(){
             player.show();
         }
         fill(255);
+        textSize(20);
         text("Stage: " + level.stage,800,80);
         text("Loc:  " + floor(player.x) + " " + floor(player.y),800,100);
         text("Checkpoint: " + player.checkpoint,800,120);
@@ -62,6 +71,7 @@ function keyPressed() {
             level.setStage(0);
             player.reset(level);
             player.lives=3;
+            overScreen.start();     
             menu.menu=true;
         }
     } else if (key == '-' || key == '_') {

@@ -18,10 +18,10 @@ class Area {
     draw(player) {
         fill(63,127);
         rectMode(CENTER);
-        stroke(255);
         if (this.type < player.checkpoint) {
-            fill(33,130,0,200);
+            image(gift,this.x,this.y,60,this.h); 
+        }else{
+            rect(this.x,this.y,this.w,this.h);
         }
-        rect(this.x,this.y,this.w,this.h);
     }
 }

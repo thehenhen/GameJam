@@ -128,12 +128,24 @@ class Player{
                     console.log(this.lives);
                     //this.x = -100;
                     //this.y = -100;
-                    if(!this.playing && this.lives==0){
-                        deathSound.setVolume(1);
-                        deathSound.play();
-                        
+                    if(!this.playing){
+                        if(overScreen.counter<3){
+                            deathSound.setVolume(map(3-this.lives,0,2,0,1));
+                            deathSound.play();
+                        }else{
+                            deathSound2.setVolume(map(3-this.lives,0,2,0,1));
+                            deathSound2.play();
+                        }
                         this.playing=true;
-                        
+                    }
+                    if(this.lives==0){
+                        level.reset();
+                        level.stage=0;
+                        level.setStage(0);
+                        this.reset(level);
+                        this.lives=3;
+                        overScreen.start();     
+                        menu.menu=true;
                     }
                     
                 }
