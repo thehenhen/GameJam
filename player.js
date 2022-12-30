@@ -11,19 +11,19 @@ class Player{
         loadImage("assets/santa-runningR2.png"),
         loadImage("assets/santa-runningR3.png"),
         loadImage("assets/santa-runningR4.png")];
-
+        
         this.runningL=[loadImage("assets/santa-runningL1.png"),
         loadImage("assets/santa-runningL2.png"),
         loadImage("assets/santa-runningL3.png"),
         loadImage("assets/santa-runningL4.png")];
-
+        
         this.standing=[loadImage("assets/santa-standingL.png"),loadImage("assets/santa-standingR.png")];
-
+        
         this.jumping=[loadImage("assets/santa-jumpingR.png"),
         loadImage("assets/santa-jumpingL.png"),
         loadImage("assets/santa-fallingR.png"),
         loadImage("assets/santa-fallingL.png")];
-
+        
         this.dying=[loadImage("assets/santa-deadL.png"),
         loadImage("assets/santa-deadR.png")];
         this.reset(level);
@@ -33,10 +33,10 @@ class Player{
         this.x=level.spawnX;
         this.y=level.spawnY;
         this.vY=0;
-    
+        
         this.grounded=false;
         this.dead = false;
-    
+        
         this.hgt=60;
         this.wdt=40;    
         this.up=false;
@@ -157,6 +157,9 @@ class Player{
                         level.reset();
                         level.stage=0;
                         level.setStage(0);
+                        this.reset(level);
+                        overScreen.start();     
+                        this.lives=4 + overScreen.counter;
                         this.reset(level);  
                         menu.menu=true;
                     }
