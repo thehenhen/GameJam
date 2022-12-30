@@ -1,6 +1,6 @@
 class Menu{
     constructor(){
-        this.menu=true;
+        this.menu=false;
         this.santa="";
         this.playing=false;
     }
