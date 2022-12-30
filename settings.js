@@ -1,6 +1,9 @@
 class Settings{
     constructor(){
         this.sett=false;
+        this.jumpscares;
+        this.audio;
+
     }
 
     show(){
@@ -17,6 +20,9 @@ class Settings{
             fill(250,150,150);
         }
         text("< BACK",100,120);
+        fill(136, 8, 8); 
+        text("Jumpscares",200,250);
+        text("Audio",200,350);
         //text(mouseX+","+mouseY,mouseX,mouseY);
         
     } 
