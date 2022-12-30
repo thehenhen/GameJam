@@ -6,6 +6,7 @@ class Player{
         this.hgt=60;
         this.wdt=40;
         this.lives=3;
+        this.max_lives=3;
         
         this.runningR=[loadImage("assets/santa-runningR1.png"),
         loadImage("assets/santa-runningR2.png"),
@@ -128,43 +129,41 @@ class Player{
     death_check(traps) {
         for (let trap = 0; trap < traps.length; trap++) {
             let res = traps[trap].collide(this.x, this.y, this.wdt, this.hgt);
-            if (res != -1) {
-                if (res == 1) {
-                    if(!this.dead){
-                        //this.vY=-10;
-                        this.lives--;
-                    }
-                    this.dead = true;
-                    
-                    console.log(this.lives);
-                    //this.x = -100;
-                    //this.y = -100;
-                    if(!this.playing){
-                        deathSound.rate(1);
-                        deathSound2.rate(1);
-                        if(overScreen.counter<3){
-                            deathSound.setVolume(map(3-this.lives,0,2,0,1));
-                            deathSound.play();
-                        }else{
-                            deathSound2.setVolume(map(3-this.lives,0,2,0,1));
-                            deathSound2.play();
-                        }
-                        this.playing=true;
-                    }
-                    if(this.lives==0){
-                        this.lives=3;
-                        overScreen.start();   
-                        level.reset();
-                        level.stage=0;
-                        level.setStage(0);
-                        this.reset(level);
-                        overScreen.start();     
-                        this.lives=4 + overScreen.counter;
-                        this.reset(level);  
-                        menu.menu=true;
-                    }
-                    
+            if (res == 1) {
+                if(!this.dead){
+                    //this.vY=-10;
+                    this.lives--;
                 }
+                this.dead = true;
+                
+                console.log("lives", this.lives);
+                //this.x = -100;
+                //this.y = -100;
+                if(!this.playing){
+                    deathSound.rate(1);
+                    deathSound2.rate(1);
+                    if(overScreen.counter<3){
+                        deathSound.setVolume(map(this.max_lives-this.lives,0,2,0,1));
+                        deathSound.play();
+                    }else{
+                        deathSound2.setVolume(map(this.max_lives-this.lives,0,2,0,1));
+                        deathSound2.play();
+                    }
+                    this.playing=true;
+                }
+                if(this.lives==0){
+                    overScreen.start();   
+                    level.reset();
+                    level.stage=0;
+                    level.setStage(0);
+                    this.reset(level);
+                    overScreen.start();     
+                    this.lives=4 + overScreen.counter;
+                    this.max_lives=4 + overScreen.counter;
+                    this.reset(level);  
+                    menu.menu=true;
+                }
+                
             }
         }
     }
