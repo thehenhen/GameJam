@@ -5,7 +5,7 @@ class Menu{
         this.playing=false;
     }
 
-    show(){
+    show(frame){
         if(!this.playing){
             titleAmbience.setVolume(0.1);
             deathSound.rate(1);
@@ -21,37 +21,29 @@ class Menu{
         textSize(100);
         textAlign(RIGHT,CENTER);
         textFont(consolaFont);
-        if(overScreen.counter<3){
-            text("SANTA'S",900,150);
-        }else {
-            this.santa="";
-            for(let i=0;i<5;i++){
-                this.santa+=char(floor(random(33,39))); 
-            }
-            text(this.santa+"'S",900,150);
-        }
-         
+        text(this.txt("SANTA'S", frame),900,150);
+        text(this.txt("TERROR", frame),900,230); 
 
-        text("TERROR",900,230); 
         textSize(20);
-        text("Warning: Jumpscares",900,300);
+        text(this.txt("Warning: Jumpscares"),900,300);
         textSize(40);
         if(mouseX<895 && mouseX>813 && mouseY>=337 && mouseY<=372){
             fill(250,150,150);
         }
-        this.play=text("Play",900,350);
+        this.play=text(this.txt("Play"),900,350);
         fill(136, 8, 8); 
         if(mouseX<895 && mouseX>=723 && mouseY>=387 && mouseY<=423){
             fill(250,150,150);
         }
-        text("Settings",900,400);
+        text(this.txt("Settings"),900,400);
         fill(136, 8, 8); 
         if(mouseX<895 && mouseX>=637 && mouseY>=437 && mouseY<=465){
             fill(250,150,150);
         }
-        text("Instructions",900,450);
-        tint(250,200,200); 
-        if(overScreen.counter<3){
+        text(this.txt("Instructions"),900,450);
+        tint(250,200,200);
+        imageMode(CENTER);
+        if(overScreen.counter<2){
             image(player.dying[0],300,300,420,280);
         }else{
             glitch.resetBytes();
@@ -59,10 +51,15 @@ class Menu{
             glitch.buildImage();            
             image(glitch.image,300,300,420,280);
         }
+
         tint(255);
         //console.log(mouseX+","+mouseY);
         
-    } 
+    }
+
+    txt(str) {
+        return (overScreen.counter < 2 ? str : gl.glitch(str));
+    }
 
     mouse(){
         if(mouseX<895){

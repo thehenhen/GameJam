@@ -14,6 +14,7 @@ let furniture;
 let bricks;
 function preload(){
     consolaFont = loadFont("assets/CONSOLA.TTF");
+    kelvinchFont = loadFont("assets/Kelvinch-Roman.otf");
     deathSound = loadSound("assets/jumpscare.mp3");
     deathSound2 = loadSound("assets/jumpscare2.mp3");
     jumpSound = loadSound("assets/jump.mp3");
@@ -39,6 +40,7 @@ function setup(){
     glitch=new Glitch();
     glitch.loadType('png');    
     glitch.loadImage("assets/santa-deadL.png");
+    gl = new GlitchChars();
     frame = 0;
     play = false;
 }
@@ -48,7 +50,7 @@ function draw(){
     }else if(overScreen.over){
         overScreen.show();
     }else if(menu.menu){
-        menu.show();
+        menu.show(frame);
     }else if(settings.sett){
         settings.show();
     }else if(instructions.instructions){
@@ -62,6 +64,7 @@ function draw(){
             if (res == 1) {
                 level.nextStage();
                 player.reset(level);
+
             }
             player.show();
         }
@@ -73,7 +76,7 @@ function draw(){
         text("Lives: " + player.lives,800,140);
         stroke(255);
     }
-    // frame++;
+    frame++;
 }
 function keyPressed() {
     if (key == 'p' || key == 'P') {
