@@ -8,6 +8,7 @@ class Menu{
     show(){
         if(!this.playing){
             titleAmbience.setVolume(0.1);
+            deathSound.rate(1);
             titleAmbience.play();
             this.playing=true;
             console.log("playing");

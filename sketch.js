@@ -4,6 +4,7 @@ let deathSound2;
 let jumpSound;
 let landSound;
 let titleAmbience;
+let typing;
 let gift;
 let timer;
 let glitch;
@@ -15,6 +16,7 @@ function preload(){
     jumpSound = loadSound("assets/jump.mp3");
     landSound = loadSound("assets/land.mp3");
     titleAmbience = loadSound("assets/titleScreenAmbience.mp3");
+    typing = loadSound("assets/typing.mp3");
     gift=loadImage("assets/gift.png");  
 }
 

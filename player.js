@@ -140,6 +140,8 @@ class Player{
                     //this.x = -100;
                     //this.y = -100;
                     if(!this.playing){
+                        deathSound.rate(1);
+                        deathSound2.rate(1);
                         if(overScreen.counter<3){
                             deathSound.setVolume(map(3-this.lives,0,2,0,1));
                             deathSound.play();
@@ -174,11 +176,13 @@ class Player{
             }
             if(key === 'w' || keyCode === UP_ARROW){
                 if (this.grounded) {
+                    jumpSound.stop();
                     this.up=true;
                     this.vY-=this.jump;
                     this.grounded = false;
                     jumpSound.setVolume(0.01);
                     jumpSound.play();
+                    console.log("stop");
                 }
             }
             if(key === 's' || keyCode === DOWN_ARROW){
