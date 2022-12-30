@@ -14,7 +14,14 @@ class Opening {
         this.counter=[0,0,0,0];
         this.paragraph=0;
         this.done=false;
+        this.done1;
+        this.done2;
+        this.done3;
         this.time=millis();
+        this.time0;
+        this.time1;
+        this.time2;
+
     }
 
     display(){
@@ -30,21 +37,45 @@ class Opening {
         text(this.show3,100,220,800); 
         text(this.show4,100,390); 
         this.type(0); 
-        this.type(1); 
-        this.type(2); 
-        this.type(3); 
-        if(millis()-this.time>5000){
-            this.open=false;
-            menu.menu=true;
+        if(millis()-this.time0>500){
+            this.type(1); 
+            if(millis()-this.time1>1000){
+                this.type(2); 
+                if(millis()-this.time2>5000){
+                    this.type(3); 
+                    if(millis()-this.time>5000){
+                        this.open=false;
+                        menu.menu=true;
+                        typing.play();
+                    }
+                }
+                
+            }
+            
         }
+        
     }
 
     type(paragraph){
-        if(millis()-this.time>10){
+        if(millis()-this.time>30){
             if(this.counter[paragraph]==this.store[paragraph].length){
+                if(paragraph==0 && !this.done1){
+                    this.time0=millis();
+                    this.done1=true;
+                }
+                if(paragraph==1 && !this.done2){
+                    this.time1=millis();
+                    this.done2=true;
+                }
+                if(paragraph==2 && !this.done3){
+                    this.time2=millis();
+                    this.done3=true;
+                }
+                
                 if(paragraph==3 && !this.done){
                     this.time=millis();
                     this.done=true;
+                    
                 }
                 return -1;
             }

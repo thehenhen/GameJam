@@ -31,6 +31,7 @@ function setup(){
     createCanvas(1000,550);
     rectMode(CENTER);
     opening = new Opening();
+    ending = new Ending();
     menu = new Menu();
     settings = new Settings();
     instructions = new Instructions();
@@ -47,6 +48,8 @@ function setup(){
 function draw(){
     if(opening.open){
         opening.display();
+    }else if(ending.end){
+        ending.display();
     }else if(overScreen.over){
         overScreen.show();
     }else if(menu.menu){
@@ -95,7 +98,6 @@ function keyPressed() {
             player.lives=3;
             overScreen.start();     
             menu.menu=true;
-            
         }
     } else if (key == '-' || key == '_') {
         level.prevStage();

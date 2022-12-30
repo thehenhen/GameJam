@@ -1,6 +1,6 @@
-class Opening {
+class Ending {
     constructor(){
-        this.end=true;
+        this.end=false;
         this.store1="Patient 1225";
         this.store2="Examination #2: Results";
         this.store3="Patient 1225’s condition is much graver than expected. Patient 1225 refuses to stop attempting to save a fake character, despite the examiners communicating directly to Patient 1225 that the character is fake. Additionally, despite the character beginning to glitch and being nearly unrecognizable, Patient 1225 continued to attempt to save it, and eventually succeeded. ";
@@ -14,7 +14,13 @@ class Opening {
         this.counter=[0,0,0,0];
         this.paragraph=0;
         this.done=false;
+        this.done1;
+        this.done2;
+        this.done3;
         this.time=millis();
+        this.time0;
+        this.time1;
+        this.time2;
     }
 
     display(){
@@ -30,21 +36,44 @@ class Opening {
         text(this.show3,100,220,800); 
         text(this.show4,100,390); 
         this.type(0); 
-        this.type(1); 
-        this.type(2); 
-        this.type(3); 
-        if(millis()-this.time>5000){
-            this.end=false;
-            menu.menu=true;
+        if(millis()-this.time0>500){
+            this.type(1); 
+            if(millis()-this.time1>1000){
+                this.type(2); 
+                if(millis()-this.time2>5000){
+                    this.type(3); 
+                    if(millis()-this.time>5000){
+                        this.end=false;
+                        menu.menu=true;
+                        typing.play();
+                    }
+                }
+                
+            }
+            
         }
     }
 
     type(paragraph){
-        if(millis()-this.time>10){
+        if(millis()-this.time>30){
             if(this.counter[paragraph]==this.store[paragraph].length){
+                if(paragraph==0 && !this.done1){
+                    this.time0=millis();
+                    this.done1=true;
+                }
+                if(paragraph==1 && !this.done2){
+                    this.time1=millis();
+                    this.done2=true;
+                }
+                if(paragraph==2 && !this.done3){
+                    this.time2=millis();
+                    this.done3=true;
+                }
+                
                 if(paragraph==3 && !this.done){
                     this.time=millis();
                     this.done=true;
+                    
                 }
                 return -1;
             }

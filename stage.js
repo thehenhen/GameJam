@@ -79,9 +79,7 @@ class Stage {
             new Area(840,510,50,60,1),
             new Area(100,510,50,60,2),
         ];
-    }
-
-    if (level == 2) {
+    }else if (level == 2) {
             this.spawnX = 150;
             this.spawnY = 120;
             this.collision = [
@@ -128,8 +126,7 @@ class Stage {
                 new Area(100,510,50,60,1),
                 new Area(150,120,50,60,2),
             ];
-        }
-        if (level == 3) {
+        }else if (level == 3) {
             this.spawnX = 500;
             this.spawnY = 120;
             this.collision = [
@@ -164,8 +161,7 @@ class Stage {
                 new Area(500,510,50,60,1),
                 new Area(500,120,50,60,2),
             ];
-        }
-        if (level == 4) {
+        } else if (level == 4) {
             this.spawnX = 100;
             this.spawnY = 510;
             this.collision = [
@@ -201,6 +197,18 @@ class Stage {
                 new Area(800,510,50,60,1),
                 new Area(100,510,50,60,2),
             ];
+        }else if(level==5){
+            ending.end=true;
+            ending.show1="";
+            ending.show2="";
+            ending.show3="";
+            ending.show4="";
+            ending.counter=[0,0,0,0];
+            this.reset();
+            this.stage=0;
+            this.setStage(0);
+            player.reset(this);
+            player.lives=3;
         }
     }
     prevStage() {
