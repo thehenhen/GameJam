@@ -1,13 +1,13 @@
 class Menu{
     constructor(){
-        this.menu=false;
+        this.menu=true;
         this.santa="";
         this.playing=false;
     }
 
     show(frame){
         if(!this.playing){
-            titleAmbience.setVolume(0.1);
+            titleAmbience.setVolume(0.1*settings.volume);
             deathSound.rate(1);
             titleAmbience.play();
             this.playing=true;
@@ -73,13 +73,11 @@ class Menu{
                 this.menu=false;
                 settings.sett=true;
                 textSize(20);
-                landSound.setVolume(0.01);
                 landSound.play();
             } else if(mouseX>=637 && mouseY>=437 && mouseY<=465){
                 this.menu=false;
                 instructions.instructions=true;
                 textSize(20);
-                landSound.setVolume(0.01);
                 landSound.play();
             }
         }

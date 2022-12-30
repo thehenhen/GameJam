@@ -87,7 +87,6 @@ class Ending {
                 this.show4+=this.store[paragraph][this.counter[paragraph]];
             }
             typing.stop();
-            typing.setVolume(0.01);
             typing.rate(random(0.8,1));
             //typing.play();
             console.log("type");

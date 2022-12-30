@@ -98,7 +98,6 @@ class Player{
             if (res != -1) {
                 if (res == 0) {
                     if(!this.grounded){
-                        landSound.setVolume(0.01);
                         landSound.play();
                         console.log("hi");
                     }
@@ -139,14 +138,12 @@ class Player{
                 console.log("lives", this.lives);
                 //this.x = -100;
                 //this.y = -100;
-                if(!this.playing){
+                if(!this.playing && settings.jumpscares){
                     deathSound.rate(1);
                     deathSound2.rate(1);
                     if(overScreen.counter<3){
-                        deathSound.setVolume(map(this.max_lives-this.lives,0,2,0,1));
                         deathSound.play();
                     }else{
-                        deathSound2.setVolume(map(this.max_lives-this.lives,0,2,0,1));
                         deathSound2.play();
                     }
                     this.playing=true;
@@ -182,7 +179,6 @@ class Player{
                     this.up=true;
                     this.vY-=this.jump;
                     this.grounded = false;
-                    jumpSound.setVolume(0.01);
                     jumpSound.play();
                     console.log("stop");
                 }
@@ -249,7 +245,7 @@ class Player{
             tint(max(this.blood,150), 0, 0);
             image(this.dying[this.facing],this.x,this.y,this.wdt,this.hgt); 
             tint(255);
-            if(this.blood==255 || this.blood<=250){
+            if(this.blood==255 || this.blood<=250 && settings.jumpscares){
                 fill(255,this.blood); 
                 rect(width/2,height/2,width,height); 
             }

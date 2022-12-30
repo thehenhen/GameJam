@@ -1,6 +1,6 @@
 class Opening {
     constructor(){
-        this.open=true;
+        this.open=false;
         this.store1="Patient 1225";
         this.store2="Examination #2";
         this.store3="Patient 1225 has shown signs of abnormal empathic feelings towards computer generated images. Examination #1 has demonstrated Patient 1225’s inability to distinguish between real-life photographs from illustrations. Examination #2 will determine the extent to which Patient 1225 will attempt to save a figure that does not exist. ";
@@ -89,7 +89,7 @@ class Opening {
                 this.show4+=this.store[paragraph][this.counter[paragraph]];
             }
             typing.stop();
-            typing.setVolume(0.01);
+            typing.setVolume(0.01*settings.volume);
             typing.rate(random(0.8,1));
             //typing.play();
             console.log("type");
