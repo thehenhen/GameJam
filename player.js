@@ -76,7 +76,7 @@ class Player{
             this.vY+=this.a;
             this.y+=this.vY;
         }
-        this.grounded = false;
+        //this.grounded = false;
         this.collision(stage.collision);
         this.death_check(stage.traps);
         return this.area_check(stage.areas);
@@ -96,20 +96,31 @@ class Player{
             let res = walls[wall].collide(this.x, this.y, this.wdt, this.hgt, this.vY);
             if (res != -1) {
                 if (res == 0) {
+                    if(!this.grounded){
+                        landSound.setVolume(0.01);
+                        landSound.play();
+                        console.log("hi");
+                    }
                     this.grounded = true;
                     this.y = walls[wall].y1 - (this.hgt/2);
                     this.up = false;
                     this.vY = 0;
+                    
                 } else if (res == 1) {
                     this.grounded = true;
                     this.up = false;
                     this.vY = this.a;
+                    
                 } else if (res == 2) {
                     this.x = walls[wall].x1 - (this.wdt/2);
                     this.up = false;
+                    
+                    
                 } else if (res == 3) {
                     this.x = walls[wall].x1 + (this.wdt/2);
                     this.up = false;
+                    
+
                 }
             }
         }
@@ -139,12 +150,12 @@ class Player{
                         this.playing=true;
                     }
                     if(this.lives==0){
+                        this.lives=3;
+                        overScreen.start();   
                         level.reset();
                         level.stage=0;
                         level.setStage(0);
-                        this.reset(level);
-                        this.lives=3;
-                        overScreen.start();     
+                        this.reset(level);  
                         menu.menu=true;
                     }
                     
@@ -237,6 +248,10 @@ class Player{
                 rect(width/2,height/2,width,height); 
             }
             this.blood-=2;
+            if(this.blood<=5){
+                level.reset();
+                this.reset(level); 
+            }
         }
     }
 }

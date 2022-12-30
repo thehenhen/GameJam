@@ -20,6 +20,10 @@ class Area {
         rectMode(CENTER);
         if (this.type < player.checkpoint) {
             image(gift,this.x,this.y,60,this.h); 
+        }else if(this.type==1){
+            tint(255,100); 
+            image(gift,this.x,this.y,60,this.h); 
+            tint(255);
         }else{
             rect(this.x,this.y,this.w,this.h);
         }

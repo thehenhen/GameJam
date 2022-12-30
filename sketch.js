@@ -2,6 +2,8 @@ let consolaFont;
 let deathSound;
 let deathSound2;
 let jumpSound;
+let landSound;
+let titleAmbience;
 let gift;
 let timer;
 let glitch;
@@ -11,13 +13,15 @@ function preload(){
     deathSound = loadSound("assets/jumpscare.mp3");
     deathSound2 = loadSound("assets/jumpscare2.mp3");
     jumpSound = loadSound("assets/jump.mp3");
-    gift=loadImage("assets/gift.png");
-    
+    landSound = loadSound("assets/land.mp3");
+    titleAmbience = loadSound("assets/titleScreenAmbience.mp3");
+    gift=loadImage("assets/gift.png");  
 }
 
 function setup(){
     createCanvas(1000,550);
     rectMode(CENTER);
+    opening = new Opening();
     menu = new Menu();
     settings = new Settings();
     instructions = new Instructions();
@@ -31,7 +35,9 @@ function setup(){
     play = false;
 }
 function draw(){
-    if(overScreen.over){
+    if(opening.open){
+        opening.display();
+    }else if(overScreen.over){
         overScreen.show();
     }else if(menu.menu){
         menu.show();
@@ -78,6 +84,7 @@ function keyPressed() {
             player.lives=3;
             overScreen.start();     
             menu.menu=true;
+            
         }
     } else if (key == '-' || key == '_') {
         level.prevStage();

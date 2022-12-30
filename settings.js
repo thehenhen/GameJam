@@ -25,6 +25,8 @@ class Settings{
         if(mouseX>100 && mouseX<240 && mouseY>100 && mouseY<130){
             this.sett=false;
             menu.menu=true;
+            landSound.setVolume(0.01);
+            landSound.play();
         }
     }
 }

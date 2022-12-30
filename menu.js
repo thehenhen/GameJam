@@ -1,10 +1,18 @@
 class Menu{
     constructor(){
-        this.menu=true;
+        this.menu=false;
         this.santa="";
+        this.playing=false;
     }
 
     show(){
+        if(!this.playing){
+            titleAmbience.setVolume(0.1);
+            titleAmbience.play();
+            this.playing=true;
+            console.log("playing");
+        }
+        
         background(0);
         //noFill();
         fill(136, 8, 8); 
@@ -60,15 +68,20 @@ class Menu{
             if(mouseX>813 && mouseY>=337 && mouseY<=372){
                 this.menu=false;
                 textSize(20);
+                titleAmbience.stop();
+                this.playing=false;
             } else if(mouseX>=723 && mouseY>=387 && mouseY<=423){
                 this.menu=false;
                 settings.sett=true;
                 textSize(20);
-                console.log("settings");
+                landSound.setVolume(0.01);
+                landSound.play();
             } else if(mouseX>=637 && mouseY>=437 && mouseY<=465){
                 this.menu=false;
                 instructions.instructions=true;
                 textSize(20);
+                landSound.setVolume(0.01);
+                landSound.play();
             }
         }
         
@@ -80,7 +93,6 @@ function mousePressed(){
     if(!overScreen.over){
         if(menu.menu){
             menu.mouse();
-            console.log("hm");
         }
         if(settings.sett){
             settings.mouse();
