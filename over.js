@@ -21,7 +21,7 @@ class GameOver{
         fill(136, 8, 8);
         noStroke();
         text("game over",120,400); 
-        if(millis()-timer==0 || (millis()-timer>=10 && millis()-timer<=100)){
+        if((millis()-timer==0 || (millis()-timer>=10 && millis()-timer<=100)) && settings.jumpscares){
             background(255);
         }
         if(millis()-timer>5000){

@@ -245,7 +245,7 @@ class Player{
             tint(max(this.blood,150), 0, 0);
             image(this.dying[this.facing],this.x,this.y,this.wdt,this.hgt); 
             tint(255);
-            if(this.blood==255 || this.blood<=250 && settings.jumpscares){
+            if((this.blood==255 || this.blood<=250 )&& settings.jumpscares){
                 fill(255,this.blood); 
                 rect(width/2,height/2,width,height); 
             }
