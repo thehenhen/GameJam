@@ -1,7 +1,7 @@
 class Settings{
     constructor(){
         this.sett=false;
-        this.jumpscares=false;
+        this.jumpscares=true;
         this.volume=0.5;
         this.volumeLocked=false;
         this.jumpCoords=int(this.jumpscares);;

@@ -23,9 +23,10 @@ class Menu{
         textFont(consolaFont);
         text(this.txt("SANTA'S", frame),900,150);
         text(this.txt("TERROR", frame),900,230); 
-
-        textSize(20);
-        text(this.txt("Warning: Jumpscares"),900,300);
+        if(settings.jumpscares){
+            textSize(20);
+            text(this.txt("Warning: Jumpscares"),900,300);
+        }
         textSize(40);
         if(mouseX<895 && mouseX>813 && mouseY>=337 && mouseY<=372){
             fill(250,150,150);
