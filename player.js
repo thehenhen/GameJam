@@ -54,7 +54,7 @@ class Player{
         
     }
 
-    update(stage) {
+    update(stage, frame) {
         this.collision(stage.collision);
         if (!this.dead) {
             if(this.left){
@@ -79,7 +79,7 @@ class Player{
         }
         //this.grounded = false;
         this.collision(stage.collision);
-        this.death_check(stage.traps);
+        this.death_check(stage.traps, frame);
         return this.area_check(stage.areas);
     }
     area_check(areas) {
@@ -125,9 +125,9 @@ class Player{
             }
         }
     }
-    death_check(traps) {
+    death_check(traps, frame) {
         for (let trap = 0; trap < traps.length; trap++) {
-            let res = traps[trap].collide(this.x, this.y, this.wdt, this.hgt);
+            let res = traps[trap].collide(this.x, this.y, this.wdt, this.hgt, frame);
             if (res == 1) {
                 if(!this.dead){
                     //this.vY=-10;

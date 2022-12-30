@@ -11,29 +11,25 @@ class Instructions{
         //stroke(255);
         textSize(80);
         textAlign(RIGHT,CENTER);
-        text("Instructions",900,120); 
+        text(this.txt("Instructions"),900,120); 
         textSize(40);
         textAlign(LEFT,CENTER);
         if(mouseX>100 && mouseX<240 && mouseY>100 && mouseY<130){
             fill(250,150,150);
         }
-        text("< BACK",100,120);
+        text(this.txt("< BACK"),100,120);
         fill(136, 8, 8); 
-        text("WASD/Arrow Keys to move",150,250);
-        text("SPACE/R to restart",150,300);
-        if(overScreen.counter<3){
-            text("Help Santa deliver the gifts",150,380);
-        }else {
-            this.santa="";
-            for(let i=0;i<5;i++){
-                this.santa+=char(floor(random(33,39))); 
-            }
-            
-            text("Help "+this.santa+" deliver the gifts",150,380);
-        }
-        text("while avoiding the traps. ",150,420);
+        text(this.txt("WASD/Arrow Keys to move"),150,250);
+        text(this.txt("SPACE/R to restart"),150,300);
+        text(this.txt("Help Santa deliver the gifts"),150,380);
+        text(this.txt("while avoiding the traps."),150,420);
         //text(mouseX+","+mouseY,mouseX,mouseY);
     } 
+
+    txt(str, frame) {
+        console.log(overScreen.counter, gl.glitch(str, frame));
+        return (overScreen.counter < 1 ? str : gl.glitch(str, frame));
+    }
 
     mouse(){
         if(mouseX>100 && mouseX<240 && mouseY>100 && mouseY<130){

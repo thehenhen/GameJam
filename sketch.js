@@ -61,9 +61,9 @@ function draw(){
     }else{
         background(0);
         // player.update();
-        level.draw(player);
+        level.draw(player, frame);
         if (frame++ % 2 != 3) {
-            let res = player.update(level);
+            let res = player.update(level, frame);
             if (res == 1) {
                 level.nextStage();
                 player.reset(level);

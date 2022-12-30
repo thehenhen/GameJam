@@ -15,12 +15,12 @@ class Area {
         }
         return -1;
     }
-    draw(player) {
+    draw(player, areas) {
         fill(63,127);
         rectMode(CENTER);
         if (this.type < player.checkpoint) {
             image(gift,this.x,this.y,60,this.h); 
-        }else if(this.type==1){
+        }else if(this.type < areas){
             tint(255,100); 
             image(gift,this.x,this.y,60,this.h); 
             tint(255);

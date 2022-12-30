@@ -3,8 +3,8 @@ class Stage {
         this.stage = stage;
         this.setStage(this.stage);
     }
-    draw(player) {
-        for (let i = 0; i < this.traps.length; i++) {this.traps[i].draw();}
+    draw(player, frame) {
+        for (let i = 0; i < this.traps.length; i++) {this.traps[i].draw(frame);}
         for (let i = 0; i < this.blocks.length; i++) {this.blocks[i].draw();}
         fill(0);
         noStroke();
@@ -14,7 +14,7 @@ class Stage {
         rect(0,height-10,width,10);
         rect(width-10,0,10,height);
         for (let i = 0; i < this.collision.length; i++) {this.collision[i].draw();}
-        for (let i = 0; i < this.areas.length; i++) {this.areas[i].draw(player);}
+        for (let i = 0; i < this.areas.length; i++) {this.areas[i].draw(player, this.areas.length);}
     }
     reset() {
         for (let i = 0; i < this.traps.length; i++) {
@@ -103,7 +103,7 @@ class Stage {
                 new Obstacle(500,250,500,275,0),
                 new Obstacle(300,250,500,250,0),
                 new Obstacle(300,275,500,275,0),
-
+                
                 // air vent
                 new Obstacle(125,150,175,150,0),
                 new Obstacle(125,170,175,170,0),
@@ -126,7 +126,7 @@ class Stage {
                 new Area(100,510,50,60,1),
                 new Area(150,120,50,60,2),
             ];
-        }else if (level == 3) {
+        } else if (level == 3) {
             this.spawnX = 500;
             this.spawnY = 120;
             this.collision = [
@@ -134,21 +134,21 @@ class Stage {
                 new Obstacle(10,10,10,540,1,true),
                 new Obstacle(10,540,990,540,0,true),
                 new Obstacle(990,10,990,540,1,true),
-
+                
                 new Obstacle(370,10,370,540,1,true),
                 new Obstacle(630,10,630,540,1,true),
-
+                
                 new Obstacle(370,450,400,450,0,true),
                 new Obstacle(600,350,630,350,0,true),
                 new Obstacle(370,250,400,250,0,true)
             ];
-
+            
             this.blocks = [
                 new Block(500,430,300,300,tree,0,0,0),
                 new Block(190,275,360,530,bricks,85,52,43),
                 new Block(810,275,360,530,bricks,85,52,43),
             ];
-
+            
             this.traps = [
                 new Trap(430,540,80,0),
                 new Trap(570,540,80,0),
@@ -156,12 +156,68 @@ class Stage {
                 new Trap(630,250,80,0),
                 new Trap(370,150,80,0),
             ];
-
+            
             this.areas = [
                 new Area(500,510,50,60,1),
                 new Area(500,120,50,60,2),
             ];
         } else if (level == 4) {
+            this.spawnX = 800;
+            this.spawnY = 120;
+            this.collision = [
+                new Obstacle(10,10,990,10,0,true),
+                new Obstacle(10,10,10,540,1,true),
+                new Obstacle(10,540,990,540,0,true),
+                new Obstacle(990,10,990,540,1,true),
+                
+                // cabinet
+                new Obstacle(100,450,300,450,0),
+                new Obstacle(100,450,100,540,1),
+                new Obstacle(300,450,300,540,1),
+
+                // ledge
+                new Obstacle(400,342.5,400,357.5,1),
+                new Obstacle(750,342.5,750,357.5,1),
+                new Obstacle(400,342.5,750,342.5,0),
+                new Obstacle(400,357.5,750,357.5,0),
+
+                // ledge but again
+                new Obstacle(550,250,550,265,1),
+                new Obstacle(750,250,750,265,1),
+                new Obstacle(550,250,750,250,0),
+                new Obstacle(550,265,750,265,0),
+
+                // high ledge
+                new Obstacle(125,300,250,300,0),
+                new Obstacle(125,320,250,320,0),
+                new Obstacle(125,300,125,320,1),
+                new Obstacle(250,300,250,320,1),
+                
+                // higher ledge
+                new Obstacle(125,200,250,200,0),
+                new Obstacle(125,220,250,220,0),
+                new Obstacle(125,200,125,220,1),
+                new Obstacle(250,200,250,220,1),
+                
+            ];
+            this.blocks = [
+                new Block(187.5, 210, 125, 20, undefined, 85,52,43),
+                new Block(187.5, 310, 125, 20, undefined, 85,52,43),
+                new Block(650, 257.5, 200, 15, undefined, 85,52,43),
+                new Block(575, 350, 350, 15, undefined, 85,52,43),
+                new Block(200, 495, 250, 260, furniture, 0,0,0),
+            ];
+            this.traps = [
+                new Trap(800,540,80,1,450,540,175),
+                new Trap(400,350,80,1,750,350,175),
+            ];
+            this.areas = [
+                new Area(55,510,50,60,1),
+                new Area(150,120,50,60,2),
+                new Area(800,120,50,60,3),
+            ];
+            
+        } else if (level == 5) {
             this.spawnX = 100;
             this.spawnY = 510;
             this.collision = [
@@ -197,7 +253,7 @@ class Stage {
                 new Area(800,510,50,60,1),
                 new Area(100,510,50,60,2),
             ];
-        }else if(level==5){
+        }else if(level==6){
             ending.end=true;
             ending.show1="";
             ending.show2="";
