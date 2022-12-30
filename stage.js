@@ -34,7 +34,7 @@ class Stage {
 
             ];
             this.blocks = [
-                new Block(870,360,400,400,"/assets/tree.png",0,0,0),
+                new Block(870,360,400,400,"GameJam/assets/tree.png",0,0,0),
             ];
             this.traps = [
                 new Trap(450,540,80,0)
