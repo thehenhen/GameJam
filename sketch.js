@@ -41,7 +41,6 @@ function draw(){
         instructions.show();
     }else{
         background(0);
-        
         // player.update();
         level.draw(player);
         if (frame++ % 2 != 3) {
@@ -67,7 +66,7 @@ function keyPressed() {
         play = !play; 
         if (play) noLoop();
         else loop();
-    } else if ((key == 'r' || key == 'R' || key == ' ') && (player.blood==255 || player.blood==150)) {
+    } else if ((key == 'r' || key == 'R' || key == ' ') && (player.blood==255 || player.blood<=50)) {
         if(player.lives>0){
             level.reset();
             player.reset(level);

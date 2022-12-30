@@ -3,11 +3,12 @@ class GameOver{
         this.over=false;
         this.counter=0;
         this.message=["santa doesn't exist",
-        "why do you care about it",
-        "SANTA'S NOT REAL",
-        "it's doomed to die",
-        "you can't save it",
-        "it doesn't exist"]
+        "you can't save him",
+        "SANTA IS NOT REAL",
+        "he's doomed to die",
+        "stop trying to save him",
+        "he doesn't exist",
+        "he means nothing"]
         console.log(this.over);
         //this.start();
     }
@@ -24,7 +25,6 @@ class GameOver{
             background(255);
         }
         if(millis()-timer>5000){
-            
             background(0);
             //textAlign(CENTER,CENTER);
             //fill(255);
@@ -42,10 +42,6 @@ class GameOver{
         timer=millis();
         background(255);
         this.over=true;
-    }
-
-    mouse(){
-
     }
 }
 
