@@ -40,7 +40,7 @@ class Opening {
     }
 
     type(paragraph){
-        if(millis()-this.time>100){
+        if(millis()-this.time>10){
             if(this.counter[paragraph]==this.store[paragraph].length){
                 if(paragraph==3 && !this.done){
                     this.time=millis();
