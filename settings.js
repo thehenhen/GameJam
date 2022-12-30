@@ -61,9 +61,8 @@ class Settings{
             this.jumpCoords-=0.1;
         }
         this.jumpCoords=constrain(this.jumpCoords,0,1);
-        console.log(this.jumpCoords);
         ellipse(625+50*this.jumpCoords,350,40,40);  
-        text(mouseX+","+mouseY,mouseX,mouseY)      
+        //text(mouseX+","+mouseY,mouseX,mouseY)      
     } 
 
     mouse(){
