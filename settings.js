@@ -62,7 +62,8 @@ class Settings{
         }
         this.jumpCoords=constrain(this.jumpCoords,0,1);
         console.log(this.jumpCoords);
-        ellipse(625+50*this.jumpCoords,350,40,40);        
+        ellipse(625+50*this.jumpCoords,350,40,40);  
+        text(mouseX+","+mouseY,mouseX,mouseY)      
     } 
 
     mouse(){
@@ -72,7 +73,7 @@ class Settings{
             landSound.play();
         }
 
-        if(dist(mouseX,mouseY,map(this.volume,0,1,450,850),250)<=20 || (mouseX>=450 && mouseX<=850 && mouseY>=230 && mouseY<=250)){
+        if(dist(mouseX,mouseY,map(this.volume,0,1,450,850),250)<=20 || (mouseX>=450 && mouseX<=850 && mouseY>=240 && mouseY<=260)){
             this.volumeLocked=true;
         }
 
