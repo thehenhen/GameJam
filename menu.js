@@ -57,9 +57,9 @@ class Menu{
         
     }
 
-    txt(str) {
-        console.log(overScreen.counter, gl.glitch(str));
-        return (overScreen.counter < 2 ? str : gl.glitch(str));
+    txt(str, frame) {
+        console.log(overScreen.counter, gl.glitch(str. frame));
+        return (overScreen.counter < 2 ? str : gl.glitch(str, frame));
     }
 
     mouse(){
