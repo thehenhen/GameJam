@@ -34,7 +34,7 @@ class Stage {
 
             ];
             this.blocks = [
-                new Block(870,360,400,400,"GameJam/assets/tree.png",0,0,0),
+                new Block(870,360,400,400,tree,0,0,0),
             ];
             this.traps = [
                 new Trap(450,540,80,0)
@@ -71,8 +71,8 @@ class Stage {
                 new Obstacle(600,450,600,540,1),
             ];
             this.blocks = [
-                new Block(870,360,400,400,"/assets/tree.png",0,0,0),
-                new Block(500,495,250,250,"/assets/furniture1.png",0,0,0),
+                new Block(870,360,400,400,tree,0,0,0),
+                new Block(500,495,250,250,furniture,0,0,0),
                 new Block(325,515,50,45,undefined,85,52,43),
                 new Block(675,515,50,45,undefined,85,52,43)
             ];
@@ -117,8 +117,8 @@ class Stage {
                 new Block(150,160,50,20,undefined,85,52,43),
                 new Block(400,262.5,200,25,undefined,85,52,43),
                 new Block(600,455,200,170,undefined,85,52,43),
-                new Block(140,430,300,300,"/assets/tree.png",0,0,0),
-                new Block(300,495,250,250,"/assets/furniture1.png",0,0,0)
+                new Block(140,430,300,300,tree,0,0,0),
+                new Block(300,495,250,250,furniture,0,0,0)
             ];
             this.traps = [
                 new Trap(450,540,80,0),
@@ -148,9 +148,9 @@ class Stage {
             ];
 
             this.blocks = [
-                new Block(500,430,300,300,"/assets/tree.png",0,0,0),
-                new Block(190,275,360,530,"/assets/bricks.png",85,52,43),
-                new Block(810,275,360,530,"/assets/bricks.png",85,52,43),
+                new Block(500,430,300,300,tree,0,0,0),
+                new Block(190,275,360,530,bricks,85,52,43),
+                new Block(810,275,360,530,bricks,85,52,43),
             ];
 
             this.traps = [
@@ -184,7 +184,7 @@ class Stage {
             ];
 
             this.blocks = [
-                new Block(800,430,300,300,"/assets/tree.png",0,0,0),
+                new Block(800,430,300,300,tree,0,0,0),
                 //new Block(190,275,360,530,"/assets/bricks.png",85,52,43),
                 //new Block(810,275,360,530,"/assets/bricks.png",85,52,43),
             ];

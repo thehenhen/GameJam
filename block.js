@@ -9,7 +9,7 @@ class Block {
         this.g=g;
         this.b=b;
         if (img != undefined) {
-            this.img = loadImage(img);
+            //this.img = loadImage(img);
         }
     }
     draw() {

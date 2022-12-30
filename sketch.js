@@ -9,6 +9,9 @@ let gift;
 let timer;
 let glitch;
 let glitchedSanta;
+let tree;
+let furniture;
+let bricks;
 function preload(){
     consolaFont = loadFont("assets/CONSOLA.TTF");
     deathSound = loadSound("assets/jumpscare.mp3");
@@ -18,6 +21,9 @@ function preload(){
     titleAmbience = loadSound("assets/titleScreenAmbience.mp3");
     typing = loadSound("assets/typing.mp3");
     gift=loadImage("assets/gift.png");  
+    tree=loadImage("assets/tree.png");
+    furniture=loadImage("assets/furniture1.png");
+    bricks=loadImage("assets/bricks.png");
 }
 
 function setup(){
