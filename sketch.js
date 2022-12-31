@@ -83,11 +83,7 @@ function draw(){
     frame++;
 }
 function keyPressed() {
-    if (key == 'p' || key == 'P') {
-        play = !play; 
-        if (play) noLoop();
-        else loop();
-    } else if ((key == 'r' || key == 'R' || key == ' ') && (player.blood==255 || player.blood<=50)) {
+    if ((key == 'r' || key == 'R' || key == ' ') && (player.blood==255 || player.blood<=50)) {
         if(player.lives>0){
             level.reset();
             player.reset(level);
@@ -100,10 +96,6 @@ function keyPressed() {
             overScreen.start();     
             menu.menu=true;
         }
-    } else if (key == '-' || key == '_') {
-        //level.prevStage();
-    } else if (key == '+' || key == '=') {
-        //level.nextStage();
     }
     player.keyPress(key, keyCode, level);
 }
