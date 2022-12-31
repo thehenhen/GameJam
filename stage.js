@@ -15,6 +15,13 @@ class Stage {
         rect(width-10,0,10,height);
         for (let i = 0; i < this.collision.length; i++) {this.collision[i].draw();}
         for (let i = 0; i < this.areas.length; i++) {this.areas[i].draw(player, this.areas.length);}
+        if(this.stage==0){
+            fill(255);
+            textSize(20);
+            textAlign(LEFT,CENTER);
+            text("Deliver the gift by going to the christmas tree, then",200,200);
+            text("finish by returning to the exit. ",200,250);
+        }
     }
     reset() {
         for (let i = 0; i < this.traps.length; i++) {

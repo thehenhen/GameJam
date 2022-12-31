@@ -19,10 +19,10 @@ class Instructions{
         }
         text(this.txt("< BACK"),100,120);
         fill(136, 8, 8); 
-        text(this.txt("WASD/Arrow Keys to move"),150,250);
-        text(this.txt("SPACE/R to restart"),150,300);
-        text(this.txt("Help Santa deliver the gifts"),150,380);
-        text(this.txt("while avoiding the traps."),150,420);
+        text(this.txt("WASD/Arrow Keys to move"),150,230);
+        text(this.txt("SPACE/R to restart"),150,280);
+        text(this.txt("Help Santa deliver the gifts"),150,360);
+        text(this.txt("while avoiding the traps."),150,400);
         //text(mouseX+","+mouseY,mouseX,mouseY);
     } 
 
