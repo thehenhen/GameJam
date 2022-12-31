@@ -62,10 +62,8 @@ class Trap {
             // console.log("right", playerX - playerW/2 <= this.x + this.r/2);
             // console.log("top", playerY + playerH/2 >= this.y - this.r/2);
             // console.log("bottom", playerY - playerH/2 <= this.y + this.r/2);
-            console.log("xy", this.x,this.y,this.period,frame);
             this.cX = this.x + (this.x2-this.x) / this.period * (abs(this.period - frame % (this.period*2)));
             this.cY = this.y + (this.y2-this.y) / this.period * (abs(this.period - frame % (this.period*2)));
-            console.log("XY", this.cX,this.cY);
             if (playerX + playerW/2 >= this.cX - this.r/2
                 && playerX - playerW/2 <= this.cX + this.r/2
                 && playerY + playerH/2 >= this.cY - this.r/2

@@ -85,7 +85,6 @@ class Settings{
     released(){
         if(this.volumeLocked){
             this.volumeLocked=false;
-            console.log(this.volume);
             titleAmbience.setVolume(0.1*this.volume);
             landSound.setVolume(0.01*this.volume);
             jumpSound.setVolume(0.01*this.volume);

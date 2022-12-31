@@ -9,7 +9,6 @@ class GameOver{
         "stop trying to save him",
         "he doesn't exist",
         "he means nothing"]
-        console.log(this.over);
         //this.start();
     }
 

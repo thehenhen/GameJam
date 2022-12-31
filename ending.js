@@ -91,7 +91,6 @@ class Ending {
             typing.stop();
             typing.rate(random(0.8,1));
             //typing.play();
-            console.log("type");
             this.counter[paragraph]++;            
             this.time=millis();
         }

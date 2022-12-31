@@ -99,7 +99,6 @@ class Player{
                 if (res == 0) {
                     if(!this.grounded){
                         landSound.play();
-                        console.log("hi");
                     }
                     this.grounded = true;
                     this.y = walls[wall].y1 - (this.hgt/2);
@@ -134,8 +133,6 @@ class Player{
                     this.lives--;
                 }
                 this.dead = true;
-                
-                console.log("lives", this.lives);
                 //this.x = -100;
                 //this.y = -100;
                 if(!this.playing && settings.jumpscares){
@@ -180,7 +177,6 @@ class Player{
                     this.vY-=this.jump;
                     this.grounded = false;
                     jumpSound.play();
-                    console.log("stop");
                 }
             }
             if(key === 's' || keyCode === DOWN_ARROW){

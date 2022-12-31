@@ -11,7 +11,6 @@ class Menu{
             deathSound.rate(1);
             titleAmbience.play();
             this.playing=true;
-            console.log("playing");
         }
         
         background(0);
@@ -57,13 +56,10 @@ class Menu{
             image(glitch.image,300,300,420,280);
         }
 
-        tint(255);
-        //console.log(mouseX+","+mouseY);
-        
+        tint(255);        
     }
 
     txt(str, frame) {
-        console.log(overScreen.counter, gl.glitch(str, frame));
         return (overScreen.counter < 2 ? str : gl.glitch(str, frame));
     }
 
