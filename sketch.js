@@ -28,7 +28,8 @@ function preload(){
 }
 
 function setup(){
-    createCanvas(1000,550);
+    let cnv=createCanvas(1000,550);
+    cnv.position((windowWidth - width) / 2,(windowHeight - height) / 2);
     rectMode(CENTER);
     opening = new Opening();
     ending = new Ending();
@@ -100,9 +101,9 @@ function keyPressed() {
             menu.menu=true;
         }
     } else if (key == '-' || key == '_') {
-        level.prevStage();
+        //level.prevStage();
     } else if (key == '+' || key == '=') {
-        level.nextStage();
+        //level.nextStage();
     }
     player.keyPress(key, keyCode, level);
 }

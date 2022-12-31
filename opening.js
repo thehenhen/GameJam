@@ -3,7 +3,7 @@ class Opening {
         this.open=true;
         this.store1="Patient 1225";
         this.store2="Examination #2";
-        this.store3="Patient 1225 has shown signs of abnormal empathic feelings towards computer generated images. Examination #1 has demonstrated Patient 1225’s inability to distinguish between real-life photographs from illustrations. Examination #2 will determine the extent to which Patient 1225 will attempt to save a figure that does not exist. ";
+        this.store3="Patient 1225 has shown signs of abnormal empathic feelings towards computer generated images. Examination #1 has demonstrated Patient 1225’s inability to distinguish real-life photographs from illustrations. Examination #2 will determine the extent to which Patient 1225 will attempt to save a figure that does not exist. ";
         this.store4="The test will now begin.";
         this.show1="";
         this.show2="";
@@ -41,9 +41,9 @@ class Opening {
             this.type(1); 
             if(millis()-this.time1>1000){
                 this.type(2); 
-                if(millis()-this.time2>5000){
+                if(millis()-this.time2>2000){
                     this.type(3); 
-                    if(millis()-this.time>5000){
+                    if(millis()-this.time>3000){
                         this.open=false;
                         menu.menu=true;
                         typing.play();

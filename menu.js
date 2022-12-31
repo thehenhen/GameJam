@@ -27,6 +27,10 @@ class Menu{
             textSize(20);
             text(this.txt("Warning: Jumpscares"),900,300);
         }
+        if(ending.played){
+            textSize(30);
+            text(this.txt("Thanks for playing!"),900,90);
+        }
         textSize(40);
         if(mouseX<895 && mouseX>813 && mouseY>=337 && mouseY<=372){
             fill(250,150,150);

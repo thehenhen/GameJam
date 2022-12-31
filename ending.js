@@ -21,6 +21,7 @@ class Ending {
         this.time0;
         this.time1;
         this.time2;
+        this.played=false;
     }
 
     display(){
@@ -40,12 +41,13 @@ class Ending {
             this.type(1); 
             if(millis()-this.time1>1000){
                 this.type(2); 
-                if(millis()-this.time2>5000){
+                if(millis()-this.time2>2000){
                     this.type(3); 
-                    if(millis()-this.time>5000){
+                    if(millis()-this.time>3000){
                         this.end=false;
                         menu.menu=true;
                         typing.play();
+                        this.played=true;
                     }
                 }
                 
